@@ -6,6 +6,10 @@
     background-color: var(--c-app-orange);
 }
 
+.border-app-orange {
+    border: var(--c-app-orange);
+}
+
 .c-app-green {
     color: var(--c-app-green);
 }

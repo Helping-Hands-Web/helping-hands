@@ -9,17 +9,11 @@ const SALT_ROUNDS = 10;
 
 
 const userSchema = new Schema({
-    firstName: {
+    name: {
         type: String,
-        required: 'First Name is required',
-        minLength: [3, 'First Name needs at least 3 chars'],
+        required: 'Name is required',
+        minLength: [3, 'Name needs at least 3 chars'],
     },
-
-    lastName: {
-      type: String,
-      required: 'Last Name is required',
-      minLength: [3, 'Last name needs at least 3 chars'],
-   },
 
     email: {
       type: String,
@@ -34,7 +28,7 @@ const userSchema = new Schema({
 
     active: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     social: {
       google: {
@@ -49,6 +43,7 @@ const userSchema = new Schema({
 
     description: {
       type: String,
+      default: "",
     },
 
     tokens: {

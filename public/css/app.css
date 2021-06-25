@@ -1,0 +1,31 @@
+.bg-hands {
+    background-image: url("../img/bg_register.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+}
+
+#google-register {
+    border: 1px solid #FF914D;
+}
+
+.btn:hover {
+    color: #595959;
+}
+
+.input-border {
+    border: 1px solid #FF914D;
+}
+
+.eye-btn {
+    border: 1px solid #FF914D;
+}
+
+.fa-eye {
+    color: white;
+}
+
+.fa-eye-slash {
+    color: white;
+}

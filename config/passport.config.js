@@ -67,7 +67,9 @@ passport.use(
                                 social: {
                                     google: googleId,
                                 }, 
-                                active: true,                             
+                                active: true,        
+                                tokens: 5,   
+                                description: "",                  
                             });
 
                             return user.save().then((user) => next(null, user));
