@@ -1,0 +1,48 @@
+.c-app-orange {
+    color: var(--c-app-orange);
+}
+
+.bg-app-orange {
+    background-color: var(--c-app-orange);
+}
+
+.c-app-green {
+    color: var(--c-app-green);
+}
+
+.bg-app-green {
+    background-color: var(--c-app-green);
+}
+
+
+.c-app-grey {
+    color: var(--c-app-grey);
+}
+
+.bg-app-grey {
+    background-color: var(--c-app-grey);
+}
+
+.c-app-text {
+    color: var(--c-app-text);
+}
+
+.bg-app-text {
+    background-color: var(--c-app-text);
+}
+
+.c-app-bg {
+    color: var(--c-app-bg);
+}
+
+.bg-app-bg {
+    background-color: var(--c-app-bg);
+}
+
+.c-app-white {
+    color: var(--c-app-white);
+}
+
+.bg-app-white {
+    background-color: var(--c-app-white);
+}
