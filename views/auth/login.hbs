@@ -1,30 +1,33 @@
 <div class="bg-hands">
     <div class="row justify-content-center">
-        <div class="col col-sm-8 col-md-6 col-lg-3 border-1 mt-5 rounded bg-app-white pb-5 m-">
+        <div class="col col-sm-8 col-md-6 col-lg-3 border-1 mt-5 rounded bg-app-white pb-5 m-2">
             <div class="intro-register-img mb4">
                 <img src="./img/helping_hands_logo_max.png" class="w-100" alt="helping hands logo with name">
             </div>
-            <form action="/register-email" method="POST">
-                <div class="input-group mb-2">
-                    <input type="text" name="name" class="custom-form-control form-control input-border py-2 ps-4 {{#if errors.name}}is-invalid{{/if}}" placeholder="Name" aria-label="User name" value="{{ user.name }}">
-                    {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}
-                </div>
 
+            <div class="d-grid gap-2 mb-2">
+                <a href="/authenticate/google" class="btn bg-app-bg c-app-orange mb-2 btn-white" id="google-register"><i class="fa fa-google me-2"></i>Login with Google</a>   
+            </div>
+                <p class="c-app-text small text-center">OR</p>
+            <form action="/login" method="post">
                 <div class="input-group mb-2">
                     <input type="text" name="email" class="custom-form-control form-control input-border py-2 ps-4 {{#if errors.email}}is-invalid{{/if}}" placeholder="user@example.org" aria-label="User email" value="{{ user.email }}">
                     {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="input-group mb-2">
                     <input type="password" name="password" class="custom-form-control form-control input-border py-2 ps-4 {{#if errors.password}}is-invalid{{/if}}" placeholder="Password" aria-label="User password">
                     <button class="btn btn-outline-secondary password-toggle bg-app-orange c-app-b eye-btn" type="button"><i class="fa fa-eye-slash fa-fw" color="white"></i></button>
                     {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
                 </div>
 
-                <div class="d-grid gap-2">
-                    <button type="submit" class="btn bg-app-orange c-app-bg mb-5 btn-orange">Register</button>
+                <div class="d-grid">
+                    <button type="submit" class="btn bg-app-orange c-app-bg btn-orange">Login</button>
                 </div>
             </form>
+            <div class="mb-3 mt-2">
+                <p class="c-app-text small">New to Helping Hands?<a class="c-app-orange" href="/register">Join Us</a></p>
+            </div>
         </div>
     </div>
 </div>

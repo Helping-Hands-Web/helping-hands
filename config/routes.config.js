@@ -14,4 +14,12 @@ router.post('/register-email', secure.isNotAuthenticated, auth.doRegisterEmail)
 router.get('/authenticate/google', auth.loginWithGoogle);
 router.get('/authenticate/google/cb', auth.doLoginWithGoogle);
 
+router.get('/login', secure.isNotAuthenticated, auth.login)
+router.post('/login', secure.isNotAuthenticated, auth.doLogin)
+
+router.get('/logout', secure.isAuthenticated, auth.logout);
+
+
+
+
 module.exports = router

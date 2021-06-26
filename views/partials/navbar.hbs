@@ -1,29 +1,49 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-app-white">
   <div class="container d-flex bd-highlight mb-1">
-         <a class="navbar-brand p-2 bd-highlight" href="/">
-        <img src="./img/helping_hands_only.png" alt="helping_hands_logo" width="40" height="30">
-        </a>
+    <a class="navbar-brand p-2 bd-highlight" href="/">
+     <img src="./img/helping_hands_only.png" alt="helping_hands_logo" width="40" height="30">
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav p-2 bd-highlight">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">How does it work?</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Why Helping Hands?</a>
-        </li>
-        </ul> 
-    
+      {{#if currentUser }}
+        <ul class="navbar-nav p-2 bd-highlight">
+          <li class="nav-item">
+            <a class="nav-link {{active path=path match='/'}}" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{active path=path match='/how-does-it-work'}}" aria-current="page" href="/how-does-it-work">How does it work?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{active path=path match='/services'}}" href="/services">Services</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto p-2 bd-highlight d-flex align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+          <div class="avatar-img" style="background-image: url('{{currentUser.avatar}}')"></div>
+          
+        </ul>
+      {{else}}
+        <ul class="navbar-nav p-2 bd-highlight">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">How does it work?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Why Helping Hands?</a>
+          </li>
+        </ul>
         <ul class="navbar-nav ms-auto p-2 bd-highlight">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn bg-app-orange text-white" href="/register">Join Us</a>
-        </li>
-      </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn bg-app-orange text-white btn-orange" href="/register">Join Us</a>
+          </li>
+        </ul>
+      {{/if}}
     </div>
   </div>
 </nav>
