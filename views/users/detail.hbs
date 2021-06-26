@@ -1,0 +1,28 @@
+<div class="container profile">
+    <div class="bg-header">
+        <div class="avatar-img-profile mb-2" style="background-image: url('{{user.avatar}}')"></div>
+        <h2 class="c-app-orange">{{user.name}}</h2>        
+    </div>
+
+    {{#isCurrentUser myUser=currentUser viewUser=user}}
+        <div class="edit mt-3">
+            <a href="/users/:id/edit" class="btn bg-app-orange me-0 c-app-white"><i class="fa fa-edit fa-fw" color="white"></i>Update your profile</a>        
+        </div>
+    {{/isCurrentUser}}
+
+    <div class="description mt-3 px-3">
+        <h4 class="c-app-green">Description</h4>
+        <p>{{user.description}}</p>
+    </div>
+
+    {{#isCurrentUser myUser=currentUser viewUser=user}}
+        <div class="email mt-2 px-3">
+            <h4 class="c-app-green">Email</h4>
+            <p>{{user.email}}</p>
+        </div>
+    {{/isCurrentUser}}
+
+
+
+</div>
+

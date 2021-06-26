@@ -1,7 +1,22 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh; 
+    margin: 0; 
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    color: var(--c-app-text);
+    
+}
 
-a:focus {outline:0; box-shadow: none;}
+a:focus {
+    outline:0; 
+    box-shadow: none;
+}
 
-.btn:focus {outline:0;box-shadow: none;}
+.btn:focus {
+    outline:0;
+    box-shadow: none;
+}
 
 .bg-hands {
     background-image: url("../img/bg_register.png");
@@ -9,6 +24,18 @@ a:focus {outline:0; box-shadow: none;}
     background-repeat: no-repeat;
     background-size: cover;
     height: 850px;
+}
+
+.bg-header {
+    height: 180px;
+    background-image: url("../img/bg_profile.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .avatar-img {
@@ -21,6 +48,19 @@ a:focus {outline:0; box-shadow: none;}
     background-repeat: no-repeat;
 }
 
+.avatar-img-profile {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 2px solid var(--c-app-orange);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+
 .input-border {
     border: 1px solid var(--c-app-orange);
 }
@@ -30,7 +70,7 @@ a:focus {outline:0; box-shadow: none;}
     color: var(--c-app-white)
 }
 
-.btn-white{
+.btn-white {
     border: 1px solid var(--c-app-orange);
 }
 
@@ -40,13 +80,17 @@ a:focus {outline:0; box-shadow: none;}
     border: none;
 }
 
-
-
-
 a:hover {
     color: var(--c-app-dark-orange);
 }
 
+.nav-link:hover {
+    color: var(--c-app-orange)
+}
+
+.active {
+    font-weight: 600;
+}
 
 .eye-btn {
     border: 1px solid var(--c-app-orange);
@@ -60,3 +104,26 @@ a:hover {
     color: var(--c-app-white);
 }
 
+.btn-floating {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 2px solid var(--c-app-white);
+}
+
+.navbar-toggler {
+    background-color: var(--c-app-orange);
+    border: 1px solid var(--c-app-orange);
+}
+
+
+.navbar-toggler:focus {
+    outline:0; 
+    box-shadow: none;
+}
+
+.edit {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; 
+}

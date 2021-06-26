@@ -1,43 +1,48 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-app-white">
+<nav class="navbar navbar-expand-lg c-app-text bg-app-white">
   <div class="container d-flex bd-highlight mb-1">
     <a class="navbar-brand p-2 bd-highlight" href="/">
-     <img src="./img/helping_hands_only.png" alt="helping_hands_logo" width="40" height="30">
+     <img src="/img/helping_hands_only.png" alt="helping_hands_logo" width="40" height="30">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
+     <span class="navbar-toggler-icon">
+       <i class="fa fa-bars" style="color:#fff; font-size:28px;"></i>
+     </span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       {{#if currentUser }}
         <ul class="navbar-nav p-2 bd-highlight">
           <li class="nav-item">
-            <a class="nav-link {{active path=path match='/'}}" href="/">Home</a>
+            <a class="nav-link c-app-text {{active path=path match='/'}}" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{active path=path match='/how-does-it-work'}}" aria-current="page" href="/how-does-it-work">How does it work?</a>
+            <a class="nav-link c-app-text {{active path=path match='/how-does-it-work'}}" aria-current="page" href="/how-does-it-work">How does it work?</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{active path=path match='/services'}}" href="/services">Services</a>
+            <a class="nav-link c-app-text {{active path=path match='/services'}}" href="/services">Services</a>
           </li>
         </ul>
-        <ul class="navbar-nav ms-auto p-2 bd-highlight d-flex align-items-center">
+        <ul class="navbar-nav ms-auto p-2 bd-highlight d-flex">
           <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
+            <a class="nav-link c-app-text" href="/logout">Logout</a>
           </li>
-          <div class="avatar-img" style="background-image: url('{{currentUser.avatar}}')"></div>
+          <a href="/users/{{currentUser.id}}">
+            <div class="avatar-img" style="background-image: url('{{currentUser.avatar}}')"></div>
+          </a>
+          
           
         </ul>
       {{else}}
         <ul class="navbar-nav p-2 bd-highlight">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">How does it work?</a>
+            <a class="nav-link c-app-text" aria-current="page" href="#">How does it work?</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Why Helping Hands?</a>
+            <a class="nav-link c-app-text" href="#">Why Helping Hands?</a>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto p-2 bd-highlight">
           <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link c-app-text" href="/login">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link btn bg-app-orange text-white btn-orange" href="/register">Join Us</a>
