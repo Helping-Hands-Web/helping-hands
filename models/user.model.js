@@ -24,7 +24,7 @@ const userSchema = new Schema({
 
     avatar: {
       type: String,
-      default: "",
+      default: "https://res.cloudinary.com/ironhack-helping-hands/image/upload/v1624902932/helping-hands/profile_avatar_h0n94u.jpg",
     },
 
     active: {
@@ -44,7 +44,7 @@ const userSchema = new Schema({
 
     description: {
       type: String,
-      default: "",
+      default: "Update your profile to tell us more about yourself!",
     },
 
     tokens: {

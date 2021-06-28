@@ -1,12 +1,12 @@
 <div class="container profile">
     <div class="bg-header">
-        <div class="avatar-img-profile mb-2" style="background-image: url('{{user.avatar}}')"></div>
+        <div class="avatar-img-profile mt-3" style="background-image: url('{{user.avatar}}')"></div>
         <h2 class="c-app-orange">{{user.name}}</h2>        
     </div>
 
     {{#isCurrentUser myUser=currentUser viewUser=user}}
         <div class="edit mt-3">
-            <a href="/users/:id/edit" class="btn bg-app-orange me-0 c-app-white"><i class="fa fa-edit fa-fw" color="white"></i>Update your profile</a>        
+            <a href="/users/{{currentUser.id}}/edit" class="btn bg-app-orange me-0 c-app-white"><i class="fa fa-edit fa-fw" color="white"></i>Update your profile</a>        
         </div>
     {{/isCurrentUser}}
 

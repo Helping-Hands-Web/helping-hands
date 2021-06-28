@@ -6,6 +6,7 @@ const logger = require('morgan');
 const path = require('path');
 const passport = require('passport');
 
+
 //Configurations
 require('./config/hbs.config');
 require('./config/db.config');

@@ -1,13 +1,24 @@
-<h2>Update your Profile</h2>
-
-<form action="/users/{{user.id}}/edit" method="POST">
+<div class="container form mt-5">
+  <h2 class="c-app-green my-3">Update your profile</h2>
+ <form action="/users/{{user.id}}/edit" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="id" value="{{user.id}}"/>
-    <label for="name">Name</label>
-    <input name="name" type="text" class="form-control {{#if errors.name}}is-invalid{{/if}}" id="name" placeholder="Enter name"
-      value="{{ user.name }}">
-    
-    <label for="name">Description</label>
-    <input name="description" type="textarea" class="form-control" id="name" placeholder="Enter description"
-      value="{{ user.description }}">
 
-</form>
+    <div class="mb-3">
+      <label for="name">Name</label>
+      <input name="name" type="text" class="form-control {{#if errors.name}}is-invalid{{/if}}" id="name" placeholder="Enter name" value="{{ user.name }}">
+    </div>
+    
+    <div class="mb-3">
+      <label for="description">Description</label>
+      <input name="description" type="textarea" class="form-control" id="description" placeholder="Enter description" value="{{ user.description }}">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="profilePicture">Profile Picture</label>
+      <input type="file" value="{{ user.avatar }}" name="avatar" class="form-control" id="profilePicture"/> 
+    </div>
+    <div class="row justify-content-center">
+      <button type="submit" class="col col-sm-8 col-md-6 col-lg-3 btn bg-app-orange c-app-bg my-3 btn-orange mx-3">Save changes</button>
+    </div>
+ </form>
+</div>

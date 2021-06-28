@@ -4,7 +4,7 @@
             <div class="intro-register-img mb4">
                 <img src="/img/helping_hands_logo_max.png" class="w-100" alt="helping hands logo with name">
             </div>
-            <form action="/register-email" method="POST">
+            <form action="/register/email" method="POST">
                 <div class="input-group mb-2">
                     <input type="text" name="name" class="custom-form-control form-control input-border py-2 ps-4 {{#if errors.name}}is-invalid{{/if}}" placeholder="Name" aria-label="User name" value="{{ user.name }}">
                     {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}}

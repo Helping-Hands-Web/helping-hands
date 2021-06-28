@@ -26,7 +26,7 @@ module.exports.doRegisterEmail = (req, res, next) => {
                 user = { name, email, password } = req.body;
 
                 return User.create(user).then((user) =>{
-                    res.redirect('/');
+                    res.redirect('/login');
                 });
             }
         })

@@ -4,6 +4,7 @@ const common = require('../controllers/common.controller');
 const auth = require('../controllers/auth.controller');
 const users = require('../controllers/users.controller');
 const secure = require('../middlewares/secure.mid');
+const upload = require('./multer.config');
 
 
 router.get('/', common.home);
@@ -23,6 +24,6 @@ router.get('/logout', secure.isAuthenticated, auth.logout);
 
 router.get('/users/:id', secure.isAuthenticated, users.detail);
 router.get('/users/:id/edit', secure.isAuthenticated, users.edit);
-
+router.post('/users/:id/edit', secure.isAuthenticated, upload.single('avatar'), users.doEdit)
 
 module.exports = router
