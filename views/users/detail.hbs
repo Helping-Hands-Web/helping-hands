@@ -6,7 +6,7 @@
 
     {{#isCurrentUser myUser=currentUser viewUser=user}}
         <div class="edit mt-3">
-            <a href="/users/{{currentUser.id}}/edit" class="btn bg-app-orange me-0 c-app-white"><i class="fa fa-edit fa-fw" color="white"></i>Update your profile</a>        
+            <a href="/users/me/edit" class="btn bg-app-orange me-0 c-app-white"><i class="fa fa-edit fa-fw" color="white"></i>Update your profile</a>        
         </div>
     {{/isCurrentUser}}
 
@@ -18,7 +18,7 @@
     {{#isCurrentUser myUser=currentUser viewUser=user}}
         <div class="email mt-2 px-3">
             <h4 class="c-app-green">Email</h4>
-            <p>{{user.email}}</p>
+            <p>{{currentUser.email}}</p>
         </div>
     {{/isCurrentUser}}
 

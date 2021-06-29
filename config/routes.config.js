@@ -23,7 +23,7 @@ router.post('/login', secure.isNotAuthenticated, auth.doLogin);
 router.get('/logout', secure.isAuthenticated, auth.logout);
 
 router.get('/users/:id', secure.isAuthenticated, users.detail);
-router.get('/users/:id/edit', secure.isAuthenticated, users.edit);
-router.post('/users/:id/edit', secure.isAuthenticated, upload.single('avatar'), users.doEdit)
+router.get('/users/me/edit', secure.isAuthenticated, users.edit); //profile/edit
+router.post('/users/me/edit', secure.isAuthenticated, upload.single('avatar'), users.doEdit)
 
 module.exports = router

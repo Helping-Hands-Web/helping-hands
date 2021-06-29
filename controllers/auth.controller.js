@@ -47,22 +47,22 @@ module.exports.loginWithGoogle = (req, res, next) => {
     passportController(req, res, next);
   };
   
-  module.exports.doLoginWithGoogle = (req, res, next) => {
-    const passportController = passport.authenticate('google-auth', (error, user, validations) => {
-      if (error) {
-        next(error);
-      } else if (!user) {
-        res.status(400).render('users/login', { user: req.body, errors: validations });
-      } else {
-        req.login(user, (error) => {
-          if (error) next(error);
-          else res.redirect('/');
-        });
-      }
-    });
-  
-    passportController(req, res, next);
-  };
+module.exports.doLoginWithGoogle = (req, res, next) => {
+  const passportController = passport.authenticate('google-auth', (error, user, validations) => {
+    if (error) {
+      next(error);
+    } else if (!user) {
+      res.status(400).render('users/login', { user: req.body, errors: validations });
+    } else {
+      req.login(user, (error) => {
+        if (error) next(error);
+        else res.redirect('/');
+      });
+    }
+  });
+
+  passportController(req, res, next);
+};
 
 
 module.exports.login = (req, res, next) => {

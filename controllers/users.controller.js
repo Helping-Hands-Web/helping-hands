@@ -21,21 +21,25 @@ module.exports.edit = (req, res, next) => {
 
 
 module.exports.doEdit = (req, res, next) => {
-    User.findByIdAndUpdate(req.params.id, {
+    let editedUser = {
         name: req.body.name,
-        description: req.body.description,
-        avatar: req.file.path,
-    }, { runValidators: true, new: true })
+        description: req.body.description
+    }
+
+    if (req.file) {
+        editedUser.avatar = req.file.path
+    }
+
+    User.findByIdAndUpdate(req.user.id, editedUser, { runValidators: true, new: true })
         .then((user) => res.redirect(`/users/${user.id}`))
         .catch((error) => {
             if (error instanceof mongoose.Error.ValidationError) {
-                res.status(400).render('/', {
+                res.status(400).render('/users/me/edit', {
                   errors: error.errors,
                   user: req.body,
+                });
+            } else {
+                next(error);
+            }   
         });
-    } else {
-        next(error);
-    }
-
-   });
 }       
