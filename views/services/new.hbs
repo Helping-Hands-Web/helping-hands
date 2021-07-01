@@ -1,0 +1,27 @@
+
+
+<div class="container form mt-5">
+  <h2 class="c-app-green my-3">Create a new Service</h2>
+ <form action="/services/new" method="POST" enctype="multipart/form-data">
+
+    <div class="mb-3">
+      <label for="title">Title</label>
+      <input name="title" type="text" class="form-control {{#if errors.title}}is-invalid{{/if}}" id="title" placeholder="Add a title" value="{{ service.title }}">
+    </div>
+    
+    <div class="mb-3">
+      <label for="description">Description</label>
+      <input name="description" type="textarea" class="form-control {{#if errors.description}}is-invalid{{/if}}" id="description" placeholder="Enter description" value="{{ service.description }}">
+    </div>
+     <div class="mb-3">
+      <label for="tokens">Tokens</label>
+      <input name="tokens" type="number" min="1" class="form-control {{#if errors.tokens}}is-invalid{{/if}}" id="tokens" placeholder="Remember 1 token = 1 hour" value="{{ service.tokens}}">
+    </div>
+     <div class="row justify-content-center">
+      <button type="submit" class="col col-sm-8 col-md-6 col-lg-3 btn bg-app-orange c-app-bg my-3 btn-orange mx-3">Create Service</button>
+    </div>
+
+
+ </form>
+
+</div>

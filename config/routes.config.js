@@ -3,11 +3,13 @@ const router = express.Router();
 const common = require('../controllers/common.controller');
 const auth = require('../controllers/auth.controller');
 const users = require('../controllers/users.controller');
+const services = require('../controllers/services.controller');
 const secure = require('../middlewares/secure.mid');
 const upload = require('./multer.config');
 
 
-router.get('/', common.home);
+router.get('/', secure.isNotAuthenticated, common.home);
+
 
 router.get('/register', secure.isNotAuthenticated, auth.register);
 
@@ -23,7 +25,14 @@ router.post('/login', secure.isNotAuthenticated, auth.doLogin);
 router.get('/logout', secure.isAuthenticated, auth.logout);
 
 router.get('/users/:id', secure.isAuthenticated, users.detail);
-router.get('/users/me/edit', secure.isAuthenticated, users.edit); //profile/edit
+router.get('/users/me/edit', secure.isAuthenticated, users.edit); 
 router.post('/users/me/edit', secure.isAuthenticated, upload.single('avatar'), users.doEdit)
+router.get('/dashboard', secure.isAuthenticated, users.dashboard);
+
+router.get('/services/new', secure.isAuthenticated, services.create);
+// router.post('/services/new', secure.isAuthenticated, services.doCreate);
+
+
+
 
 module.exports = router

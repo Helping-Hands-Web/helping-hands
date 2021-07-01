@@ -56,7 +56,7 @@ module.exports.doLoginWithGoogle = (req, res, next) => {
     } else {
       req.login(user, (error) => {
         if (error) next(error);
-        else res.redirect('/');
+        else res.redirect('/dashboard');
       });
     }
   });
@@ -79,7 +79,7 @@ module.exports.doLogin = (req, res, next) => {
     } else {
       req.login (user, (error) => {
         if (error) next(error);
-        else res.redirect('/');
+        else res.redirect('/dashboard');
       });
     }
   });

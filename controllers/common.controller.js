@@ -1,5 +1,8 @@
-const mongoose = require('mongoose'); //para que????
+const mongoose = require('mongoose'); 
 
 module.exports.home = (req, res, next) => {
     res.render('common/home')
 }
+
+
+

@@ -55,6 +55,14 @@ const userSchema = new Schema({
 });
 
 
+userSchema.virtual('services', {
+  ref: 'Service',
+  localField: '_id',
+  foreignField: 'createdBy',
+  justOne: false,
+})
+
+
 userSchema.pre('save', function (next) {
   const user = this;
 

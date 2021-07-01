@@ -1,0 +1,42 @@
+<div class="container profile">
+    <div class="bg-header">
+        <div class="avatar-img-profile mt-3" style="background-image: url('{{user.avatar}}')"></div>
+        <h2 class="c-app-orange mt-3">Hello, {{user.name}}!</h2>        
+    </div>
+
+    <div class="card my-5">
+        <div class="card-header justify-content-centered">
+            <h4 class="c-app-orange text-center mt-2">Tokens</h4>
+        </div> 
+        <p class="text-center my-3">You have <b>{{user.tokens}}</b> tokens</p>
+        <h1 class="text-center c-app-green icon-chip"></h1>
+        <p class="text-center mb-3">To get more tokens you need to give your help by offering your availability and skills.</p>
+    </div>
+
+    
+    
+
+    <div class="card">
+      <div class="card-header services-title px-3">
+        <h4 class="c-app-orange text-center mt-2">My Services</h4>
+        
+         <a href="/services/new" class="btn bg-app-orange me-0 c-app-white px-3" id="add-service">+</a>        
+       
+      </div>
+       {{#each user.services as |service|}} 
+           <div class="container">
+             <div class="row list-group-item service-list"> 
+              <div class="col-sm-12 col-md-11">
+                <h5>{{service.title}}</h5>
+                <p>{{service.description}}</p>
+                <p>como añadir text de la categoria..</p>
+
+              </div>
+              <div class="col-sm-12 col-md-1">
+                <h2 class="c-app-green text-center mt-2">{{service.tokens}}5<span class="icon-chip"></span></h2>
+              </div>
+             </div>
+           </div>
+        {{/each}}
+    </div>
+</div>
