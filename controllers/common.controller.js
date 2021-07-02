@@ -4,5 +4,8 @@ module.exports.home = (req, res, next) => {
     res.render('common/home')
 }
 
+module.exports.howWork = (req, res, next) => {
+    res.render('common/home')
+}
 
 

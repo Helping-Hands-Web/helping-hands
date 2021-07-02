@@ -5,7 +5,12 @@ body {
     display: grid;
     grid-template-rows: auto 1fr auto; 
     color: var(--c-app-text);
+    padding-top: 5%;
     
+}
+
+.nav {
+    height: 10%;
 }
 
 a:focus {
@@ -234,3 +239,40 @@ background-color: var(--c-app-white);
     text-align: justify;
     text-justify: inter-word;
 }
+
+.intro-text {
+    margin-top: 20vh;
+    margin-bottom: 25vh;
+}
+
+.intro-img {
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.opacity {
+    opacity: 0.5;
+}
+
+.section-green {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(98, 132, 116, 0.5);
+}
+
+
+.home-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.card-img-top-wrapper {
+    overflow: hidden;
+    height: 50%;
+  }
+
+

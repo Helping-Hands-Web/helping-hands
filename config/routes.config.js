@@ -9,6 +9,7 @@ const upload = require('./multer.config');
 
 
 router.get('/', secure.isNotAuthenticated, common.home);
+router.get('/how-does-it-work', secure.isAuthenticated, common.howWork);
 
 
 router.get('/register', secure.isNotAuthenticated, auth.register);

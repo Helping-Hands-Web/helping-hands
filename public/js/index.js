@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //cambiar clases de las categorias
 function onClick(event) {
-  const card = event.currentTarget;
+  const category = event.currentTarget;
   const input = card.previousSibling;
   if (card.className !== "category-selected") {
     card.classList.add("category-selected");
@@ -32,7 +32,7 @@ function onClick(event) {
   };
 };
 
-document.querySelectorAll(".card").forEach((card) => {
+document.querySelectorAll(".category-card").forEach((card) => {
   card.addEventListener("click", onClick);
   console.log("Card clicked: ", card);
 });

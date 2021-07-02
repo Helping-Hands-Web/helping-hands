@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg c-app-text bg-app-white shadow-navbar">
+<nav class="navbar navbar-expand-lg c-app-text bg-app-white shadow-navbar fixed-top">
   <div class="container d-flex bd-highlight mb-1">
     {{#if currentUser}}
       <a class="navbar-brand p-2 bd-highlight" href="/dashboard">
         <img src="/img/helping_hands_only.png" alt="helping_hands_logo" width="40" height="30">
       </a>
     {{else}}
-      <a class="navbar-brand p-2 bd-highlight" href="/">
+      <a class="navbar-brand p-2 bd-highlight" href="#home">
         <img src="/img/helping_hands_only.png" alt="helping_hands_logo" width="40" height="30">
       </a>
     {{/if}}
@@ -40,10 +40,10 @@
       {{else}}
         <ul class="navbar-nav p-2 bd-highlight">
           <li class="nav-item">
-            <a class="nav-link c-app-text" aria-current="page" href="#">How does it work?</a>
+            <a class="nav-link c-app-text" aria-current="page" href="#how-does-it-work">How does it work?</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link c-app-text" href="#">Why Helping Hands?</a>
+            <a class="nav-link c-app-text" href="#why-helping-hands">Why Helping Hands?</a>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto p-2 bd-highlight">
