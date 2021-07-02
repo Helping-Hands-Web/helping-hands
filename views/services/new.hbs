@@ -5,21 +5,40 @@
  <form action="/services/new" method="POST" enctype="multipart/form-data">
 
     <div class="mb-3">
-      <label for="title">Title</label>
+      <label class="c-app-green" for="title">Title</label>
       <input name="title" type="text" class="form-control {{#if errors.title}}is-invalid{{/if}}" id="title" placeholder="Add a title" value="{{ service.title }}">
     </div>
     
     <div class="mb-3">
-      <label for="description">Description</label>
+      <label class="c-app-green" for="description">Description</label>
       <input name="description" type="textarea" class="form-control {{#if errors.description}}is-invalid{{/if}}" id="description" placeholder="Enter description" value="{{ service.description }}">
     </div>
+
      <div class="mb-3">
-      <label for="tokens">Tokens</label>
+      <label class="c-app-green" for="tokens">Tokens</label>
       <input name="tokens" type="number" min="1" class="form-control {{#if errors.tokens}}is-invalid{{/if}}" id="tokens" placeholder="Remember 1 token = 1 hour" value="{{ service.tokens}}">
     </div>
+
+
+    <div class="form-group mb-1 row">
+      <p class="mb-0 pb-0 c-app-green">Categories<p>
+      <p class="small mt-0 pt-0"><i>Choose at least one category</i></p>
+      {{#each allCategories as |category|}}
+        <div class="col-xl-2 col-md-3 col-6">
+          <input type="checkbox" name="categories" class="input-category" id="{{category.id}}" value="{{category.id}}"
+          {{#isCategorySelected category ../categories}} {{/isCategorySelected}}/>
+          <div class="category-card">
+            <span class="{{category.class}}"></span>
+            <p class="category-name">{{category.text}}</p>
+          </div>
+        </div> 
+      {{/each}}
+    </div>
+
      <div class="row justify-content-center">
       <button type="submit" class="col col-sm-8 col-md-6 col-lg-3 btn bg-app-orange c-app-bg my-3 btn-orange mx-3">Create Service</button>
     </div>
+
 
 
  </form>

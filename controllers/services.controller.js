@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Service = require('../models/service.model');
 const createError = require('http-errors');
-const categories = Object.keys(require('../data/categories.json'));
+const categories = Object.keys(require('../data/categories'));
 
 
 module.exports.create = (req, res, next) => {

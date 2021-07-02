@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    document.querySelectorAll('.password-toggle')
-      .forEach(button => button.addEventListener('click', onClickPasswordToggle))
-    })
+  //abrir y cerrar ojo password
+  document.querySelectorAll('.password-toggle')
+    .forEach(button => button.addEventListener('click', onClickPasswordToggle))
+  })
   
   function onClickPasswordToggle(event) {
     const button = event.currentTarget;
@@ -18,3 +18,21 @@ document.addEventListener('DOMContentLoaded', () => {
       icon.classList.add('fa-eye');
     }
   }
+
+  //cambiar clases de las categorias
+function onClick(event) {
+  const card = event.currentTarget;
+  const input = card.previousSibling;
+  if (card.className !== "category-selected") {
+    card.classList.add("category-selected");
+    input.checked = true;
+  } else {
+    card.classList.remove("category-selected");
+    input.checked = false;
+  };
+};
+
+document.querySelectorAll(".card").forEach((card) => {
+  card.addEventListener("click", onClick);
+  console.log("Card clicked: ", card);
+});

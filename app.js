@@ -5,6 +5,7 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const passport = require('passport');
+const categories = require('./data/categories');
 
 
 //Configurations
@@ -29,7 +30,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-    console.log(req.user)
+    res.locals.allCategories = categories;
     res.locals.path = req.path;
     res.locals.currentUser = req.user;
     next()

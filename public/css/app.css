@@ -172,3 +172,65 @@ a:hover {
     flex-direction: row;
     justify-content: space-between;
 }
+
+.input-category {
+    visibility: hidden;
+    position: absolute;
+}
+
+.category-card {
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+display: flex;
+padding: 15px;
+flex-direction: column;
+align-items: center;
+margin-bottom: 25px;
+color: var(--c-app-text);
+cursor: pointer;
+transition: 0.1s;
+outline: 1px solid var(--c-app-text);
+box-shadow: 0 0 3px var(--c-app-grey);
+background-color: var(--c-app-white);
+}
+
+.category-card p{
+    font-size: 17px;
+}
+
+p.category-name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70px;
+    max-height: 45px;
+    white-space: nowrap;
+}
+
+.category-card span {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.category-card:hover {
+color: black;
+outline: 4px solid var(--c-app-orange);
+background-color: var(--c-app-white);
+}
+
+.category-selected,
+.category-selected:hover {
+  background-color: var(--c-app-orange) !important;
+  color: white !important;
+  outline: 0px solid var(--c-app-orange) !important;
+  transition: 0.17s;
+}
+
+.category-selected p {
+  font-weight: 400;
+}
+
+.text-justify {
+    text-align: justify;
+    text-justify: inter-word;
+}

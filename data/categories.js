@@ -1,84 +1,105 @@
-{
-    "legal-assistance": {
+module.exports = [
+    {
+        "id":"legal-assistance",
         "text": "Legal Assistance",
         "class": "icon-001-balance"
     },
-    "accounting": {
+    {
+        "id": "accounting",
         "text": "Accounting",
         "class": "icon-002-accounting"
     },
-    "tutoring": {
+    {
+        "id":"tutoring", 
         "text": "Tutoring",
         "class": "icon-003-tutor"
     },
-    "delivery": {
+    {
+        "id":"delivery" ,
         "text": "Delivery",
         "class": "icon-004-delivery-man"
     },
-    "music-class": {
+    {
+        "id": "music-class",
         "text": "Music Classes",
         "class": "icon-005-guitar"
-    },
-    "moving": {
+    }, 
+    {
+        "id": "moving",
         "text": "Moving",
         "class": "icon-006-truck"
     },
-    "grocery-shopping": {
+    {
+        "id": "grocery-shopping",
         "text": "Grocery Shopping",
         "class": "icon-007-grocery-cart"
-    },
-    "sewing": {
+    },    
+    {
+        "id":"sewing", 
         "text": "Sewing",
         "class": "icon-008-sewing-machine"
     },
-    "driving-lessons": {
+    {
+        "id": "driving-lessons",
         "text": "Driving Lessons",
         "class": "icon-015-car"
     },
-    "writing": {
+    {
+        "id": "writing",
         "text": "Writing",
         "class": "icon-009-notes"
-    },
-    "home-repair": {
+    },  
+    {
+        "id": "home-repair",
         "text": "Home Repairs",
         "class": "icon-010-house-repair"
     },
-    "pet-care": {
+    {
+        "id": "pet-care",
         "text": "Pet Care",
         "class": "icon-011-pet"
     },
-    "tech-assistance": {
+    {
+        "id": "tech-assistance",
         "text": "Tech Assistance",
         "class": "icon-012-computer"
-    },
-    "gardening": {
+    },    
+    {
+        "id": "gardening",
         "text": "Gardening",
         "class": "icon-watering-plants"
     },
-    "car-repair": {
+    {
+        "id": "car-repair",
         "text": "Car repairs",
         "class": "icon-014-car-repair"
     },
-    "language-classes": {
+    {
+        "id": "language-classes",
         "text": "Language Classes",
         "class": "icon-016-translate"
     },
-    "cleaning": {
+    {
+        "id": "cleaning",
         "text": "Cleaning",
         "class": "icon-017-oosouji"
     },
-    "cooking": {
+    {
+        "id": "cooking",
         "text": "Cooking",
         "class": "icon-018-cooking"
     },
-    "reading": {
+    {
+        "id": "reading",
         "text": "Reading",
         "class": "icon-019-student"
     },
-    "other": {
+    {
+        "id":"other", 
         "text": "Other",
         "class": "icon-020-help" 
     }
-}
+]
+
 
 

@@ -6,21 +6,26 @@
 
     {{#isCurrentUser myUser=currentUser viewUser=user}}
         <div class="edit mt-3">
-            <a href="/users/me/edit" class="btn bg-app-orange me-0 c-app-white"><i class="fa fa-edit fa-fw" color="white"></i>Update your profile</a>        
+            <a href="/users/me/edit" class="btn bg-app-orange me-0 c-app-white btn-orange fs-5"><i class="fa fa-edit fa-fw" color="white"></i>Update your profile</a>        
         </div>
     {{/isCurrentUser}}
 
-    <div class="description mt-3 px-3">
-        <h4 class="c-app-green">Description</h4>
-        <p>{{user.description}}</p>
+    <div class="card my-5">
+        <div class="card-header justify-content-centered">
+            <h4 class="c-app-green mt-2 px-2"><i class="fa fa-address-card"></i>     Description</h4>
+        </div> 
+        <p class="my-3 px-4 text-justify">{{user.description}}</p>
     </div>
 
     {{#isCurrentUser myUser=currentUser viewUser=user}}
-        <div class="email mt-2 px-3">
-            <h4 class="c-app-green">Email</h4>
-            <p>{{currentUser.email}}</p>
+        <div class="card my-5">
+            <div class="card-header justify-content-centered">
+                <h4 class="c-app-green mt-2 px-2"><i class="fa fa-envelope"></i>     Email</h4>
+            </div> 
+            <p class="my-3 px-4 text-justify">{{currentUser.email}}</p>
         </div>
     {{/isCurrentUser}}
+
 
 
 

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const Schema = mongoose.Schema;
-const categories = require('../data/categories.json')
+const categories = require('../data/categories')
 
 const serviceSchema = new Schema({
     title: {
@@ -21,11 +21,11 @@ const serviceSchema = new Schema({
     categories: {
         type: [{
             type: String,
-            enum: Object.keys(categories)
+            enum: categories.map((c) => c.id)
         }],
         validate: {
             validator: function(categories) {
-                return Array.isArray(categories) && categories.length >= 1;
+                return categories.length >= 1;
             },
             message: 'Choose at least one category'
           }
