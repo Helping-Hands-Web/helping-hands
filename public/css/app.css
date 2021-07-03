@@ -72,6 +72,11 @@ input[type="textarea"]:focus {
 }
 
 
+.row-services{
+    --bs-gutter-x: 0rem;
+}
+
+
 
 
 .input-border {
@@ -313,3 +318,12 @@ background-color: var(--c-app-white);
     border: 1px solid var(--c-app-orange);
 }
 
+.services {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.services-card {
+    padding: 0;
+}

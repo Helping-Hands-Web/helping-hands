@@ -10,15 +10,17 @@
             </form>
         </div>
     </div> 
+    
 </div>
 
-    <div class="card container">
-      <div class="row card-header services-title px-3">
-        <h4 class="c-app-orange text-center mt-2">Services</h4>    
+    <div class="card container services-card">
+      <div class="card-header services-title">
+        <h4 class="c-app-orange text-center mt-2">Services</h4>
+         <a href="/services/new" class="btn bg-app-orange me-0 c-app-white px-3 btn-orange fs-5" id="add-service">+</a>        
       </div>
        {{#each services as |service|}} 
            <div>
-             <div class="row list-group-item service-list"> 
+             <div class="row row-services list-group-item service-list"> 
                  <div class="col-xs-3 col-md-1">
                     <a href="/users/{{service.createdBy.id}}">
                         <div class="avatar-img" style="background-image: url('{{service.createdBy.avatar}}')"></div>
