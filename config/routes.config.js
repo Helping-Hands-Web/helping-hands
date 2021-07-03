@@ -31,9 +31,8 @@ router.post('/users/me/edit', secure.isAuthenticated, upload.single('avatar'), u
 router.get('/dashboard', secure.isAuthenticated, users.dashboard);
 
 router.get('/services/new', secure.isAuthenticated, services.create);
-// router.post('/services/new', secure.isAuthenticated, services.doCreate);
-
-
+router.post('/services/new', secure.isAuthenticated, services.doCreate);
+router.get('/services', secure.isAuthenticated, services.list);
 
 
 module.exports = router

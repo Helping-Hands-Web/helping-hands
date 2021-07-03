@@ -6,7 +6,6 @@ body {
     grid-template-rows: auto 1fr auto; 
     color: var(--c-app-text);
     padding-top: 5%;
-    
 }
 
 .nav {
@@ -240,20 +239,6 @@ background-color: var(--c-app-white);
     text-justify: inter-word;
 }
 
-.intro-text {
-    margin-top: 20vh;
-    margin-bottom: 25vh;
-}
-
-.intro-img {
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-}
-
-.opacity {
-    opacity: 0.5;
-}
-
 .section-green {
     display: flex;
     flex-direction: column;
@@ -270,9 +255,61 @@ background-color: var(--c-app-white);
 
 }
 
+.card-img {
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+
 .card-img-top-wrapper {
     overflow: hidden;
-    height: 50%;
+    width:75%;  
   }
 
+
+@media (min-width: 992px) {
+    .section-light {
+        padding: 2rem 10rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .section-light {
+        padding: 2rem 5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-light {
+        padding: 2rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .section-green {
+        padding: 2rem 10rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .section-green {
+        padding: 2rem 5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-green {
+        padding: 2rem;
+    }
+}
+
+.intro-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#search-wrapper {
+    border: 1px solid var(--c-app-orange);
+}
 

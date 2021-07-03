@@ -8,34 +8,34 @@ const workSchema = new Schema({
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
+        required: true,
     },
 
     requestedBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
+        required: true,
     },
 
     service: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Service',
+        required: true,
     },
 
-    date: {
+    dueDate: {
         type: Date,
-
-    },
-
-    time: {
-        type: Time,
-        
     },
 
     status: {
         type: String, 
         enum: ['pending', 'confirmed', 'done', 'cancel'],
+        default: 'pending',
+    },
+
+    message: {
+        type: String,
     }
-    
-    
 
 },
  {timestamps : true},

@@ -11,6 +11,24 @@ hbs.registerHelper('active', (options) => {
     return path === match ? 'active' : '';
 })
 
+hbs.registerHelper('change-how', (options) => {
+    const { match, path} = options.hash;
+    if (match === path) {
+        return '/#how-does-it-work'
+    } else {
+        return '/'
+    }
+})
+
+hbs.registerHelper('change-why', (options) => {
+    const { match, path} = options.hash;
+    if (match === path) {
+        return '/#why-helping-hands'
+    } else {
+        return '/'
+    }
+})
+
 hbs.registerHelper('isCurrentUser', function (options) {
     const {myUser, viewUser } = options.hash;
     if(myUser.id === viewUser.id) {
@@ -24,20 +42,6 @@ hbs.registerHelper('isNotCurrentUser', function (options) {
     const {currentUser, viewUser } = options.hash;
     return currentUser.id !== viewUser.id;
 });
-/* 
-hbs.registerHelper('serviceHasCategory', function (options) {
-    const { service, category} = options.hash;
-    if (service?.categories.includes(category)) {
-        return options.fn(this);
-    } else {
-        return options.inverse(this);
-    }
-})
-
-hbs.registerHelper('categoryLabel', function(options) {
-    const { id, selector } = options.hash;
-    return categories[id][selector];
-  }); */
 
 hbs.registerHelper('isCategorySelected', (category, categories, options) => {
 return (categories && categories.indexOf(category.id) !== -1) ? 'checked' : '';

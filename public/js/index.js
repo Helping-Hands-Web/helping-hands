@@ -1,5 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-  //abrir y cerrar ojo password
+
+
+    //cambiar clases de las categorias
+function onClick(event) {
+  const category = event.currentTarget;
+  const input = category.previousElementSibling;
+  if (!input.checked) {
+    category.classList.add("category-selected");
+    input.checked = true;
+  } else {
+    category.classList.remove("category-selected");
+    input.checked = false;
+  };
+};
+
+  
+
+document.querySelectorAll(".category-card").forEach((card) => {
+  card.addEventListener("click", onClick);
+  console.log("Card clicked: ", card);
+})
+
   document.querySelectorAll('.password-toggle')
     .forEach(button => button.addEventListener('click', onClickPasswordToggle))
   })
@@ -18,21 +39,3 @@ document.addEventListener('DOMContentLoaded', () => {
       icon.classList.add('fa-eye');
     }
   }
-
-  //cambiar clases de las categorias
-function onClick(event) {
-  const category = event.currentTarget;
-  const input = card.previousSibling;
-  if (card.className !== "category-selected") {
-    card.classList.add("category-selected");
-    input.checked = true;
-  } else {
-    card.classList.remove("category-selected");
-    input.checked = false;
-  };
-};
-
-document.querySelectorAll(".category-card").forEach((card) => {
-  card.addEventListener("click", onClick);
-  console.log("Card clicked: ", card);
-});

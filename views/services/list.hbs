@@ -1,4 +1,40 @@
-/* 
-{{#each cosa}}
-    <i class="icon-{{cosa.classWord}}">
-{{each}} */
+<div class="container profile py-5">
+    <div class="bg-header">
+        <h2 class="c-app-orange mt-3">Search Services</h2> 
+        <div class="row mt-3">
+            <form action="/services" method="GET" class="flex-grow-1 mb-3">
+            <div id="search-wrapper" class="d-flex flex-row align-items-center rounded bg-app-white">
+                <i class="fa fa-search py-2 px-3 rounded"></i>
+                <input name="search" value="{{search}}" type="text" class="form-control border-0" placeholder="Search Services">
+            </div>
+            </form>
+        </div>
+    </div> 
+</div>
+
+    <div class="card container">
+      <div class="row card-header services-title px-3">
+        <h4 class="c-app-orange text-center mt-2">Services</h4>    
+      </div>
+       {{#each services as |service|}} 
+           <div>
+             <div class="row list-group-item service-list"> 
+                 <div class="col-xs-3 col-md-1">
+                    <a href="/users/{{service.createdBy.id}}">
+                        <div class="avatar-img" style="background-image: url('{{service.createdBy.avatar}}')"></div>
+                    </a>                     
+                 </div>
+
+                <div class="col-xs-9 col-md-10">
+                    <h5 class="c-app-text">{{service.title}}</h5>
+                    <p class="c-app-text">{{service.description}}</p>
+                </div>
+
+              <div class="col-xs-12 col-md-1">
+                <h2 class="c-app-green text-center mt-2">{{service.tokens}}<span class="icon-chip"></span></h2>
+              </div>
+             </div>
+           </div>
+        {{/each}}
+    </div>
+
