@@ -11,6 +11,12 @@ hbs.registerHelper('active', (options) => {
     return path === match ? 'active' : '';
 })
 
+
+hbs.registerHelper('isActive', (options) => {
+    const {index} = options.hash;
+    return Number(index) === 0 ? 'active' : '';
+})
+
 hbs.registerHelper('change-how', (options) => {
     const { match, path} = options.hash;
     if (match === path) {
