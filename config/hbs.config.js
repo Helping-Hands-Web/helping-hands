@@ -3,6 +3,7 @@ const hbs = require('hbs');
 const path = require('path'); 
 let isCurrentUser = false;
 const categories = require('../data/categories')
+const Service = require('../models/service.model');
 
 hbs.registerPartials((path.join(__dirname, '../views/partials')))
 
@@ -53,3 +54,17 @@ hbs.registerHelper('isCategorySelected', (category, categories, options) => {
 return (categories && categories.indexOf(category.id) !== -1) ? 'checked' : '';
 })
 
+hbs.registerHelper('categoryIcon', (category) => {
+    const iconClass = categories.find(c => c.id === category).class
+    return `<span class="${iconClass}"></span>`;
+})
+
+hbs.registerHelper('serviceIsNotOwnedBy', function (options) {
+    const { user, service } = options.hash;
+
+    if (user && user._id.toString() != service?.createdBy._id.toString()) {
+      return options.fn(this);
+    } else {
+      return options.inverse(this);
+    }
+  });

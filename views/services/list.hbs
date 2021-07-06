@@ -2,17 +2,12 @@
     <div class="">
         <h2 class="c-app-orange mt-3">Search Services</h2> 
         <div class="row mt-3">
-            <form action="/services" method="GET" class="flex-grow-1 mb-3">
-             <div id="search-wrapper" class="d-flex flex-row align-items-center rounded bg-app-white">
+            <form action="/services" method="GET" class="form-search flex-grow-1 mb-3">
+             <div id="search-wrapper" class="d-flex flex-row align-items-center rounded bg-app-white mb-4">
                 <i class="fa fa-search py-2 px-3 rounded"></i>
                 <input name="search" value="{{search}}" type="text" class="form-control border-0" placeholder="Search Services">
              </div>
-                {{!-- <div class="slick-initialized slick-slider">
-                    <div>your content</div>
-                    <div>your content</div>
-                    <div>your content</div>
-                </div>   --}}
-                <div class="row">
+                <div class="row carrousel">
                         {{#each allCategories as |category|}}
                         <div class="col-xl-2 col-md-3 col-6">
                             <input type="checkbox" value="{{category.id}}" name="categories" class="input-category form-control" {{#isCategorySelected category ../categories}} {{/isCategorySelected}}/>
@@ -24,13 +19,13 @@
                       {{/each}}
                 </div>
                   
-             <button type="submit" class="btn bg-app-orange me-0 c-app-white px-3 btn-orange fs-5">Submit</button>
+             <button type="submit" class="btn bg-app-orange me-0 c-app-white px-3 btn-orange fs-5 search">Search</button>
             </form>
             
         </div>
     </div>  
 </div>
-
+  <p></p>
     <div class="card container services-card">
       <div class="card-header services-title">
         <h4 class="c-app-orange text-center mt-2">Services</h4>
@@ -41,17 +36,28 @@
              <div class="row row-services list-group-item service-list"> 
                  <div class="col-xs-3 col-md-1">
                     <a href="/users/{{service.createdBy.id}}">
-                        <div class="avatar-img" style="background-image: url('{{service.createdBy.avatar}}')"></div>
+                        <div class="avatar-img mt-1" style="background-image: url('{{service.createdBy.avatar}}')"></div>
                     </a>                     
                  </div>
-
-                <div class="col-xs-9 col-md-10">
+         
+                <div class="col-xs-9 col-md-10 mt-1">
                     <h5 class="c-app-text">{{service.title}}</h5>
                     <p class="c-app-text">{{service.description}}</p>
+                    <p class="fs-2 mb-1">
+                        {{#each service.categories as |category|}}
+                            {{{categoryIcon category}}}
+                        {{/each}}
+                    </p>
+                    
                 </div>
 
               <div class="col-xs-12 col-md-1">
+                
                 <h2 class="c-app-green text-center mt-2">{{service.tokens}}<span class="icon-chip"></span></h2>
+                {{#serviceIsNotOwnedBy user=../currentUser service=service}}
+
+                <a class="btn bg-app-green text-white btn-green mt-2" href="/services/{{service.id}}/work">Request</a>
+                {{/serviceIsNotOwnedBy }}
               </div>
              </div>
            </div>

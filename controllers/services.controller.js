@@ -11,7 +11,6 @@ module.exports.create = (req, res, next) => {
 };
 
 module.exports.doCreate = (req, res, next) => {
-    console.log(req.body)
     let serviceCategories = req.body.categories;
     if (serviceCategories && !Array.isArray(serviceCategories)) {
         serviceCategories = [serviceCategories]

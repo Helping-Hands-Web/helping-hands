@@ -1,0 +1,22 @@
+
+
+<div class="container form mt-5">
+  <h2 class="c-app-green my-3">Send your Request</h2>
+ <form action="/services/{{service.id}}/work" method="POST" class="new-work">
+
+    <div class="mb-3">
+      <label class="c-app-green" for="message">Message</label>
+      <input name="message" type="textarea" class="form-control" id="message" placeholder="Send a message to the Helper to explain what you need" value="{{ service.description }}">
+    </div>
+
+     <div class="mb-3">
+      <label class="c-app-green label-date" for="tokens">Date</label>
+      <input name="date" type="date" id="date" class="rounded">
+    </div>
+
+     <div class="row justify-content-center">
+      <button type="submit" class="col col-sm-8 col-md-6 col-lg-3 btn bg-app-orange c-app-bg my-3 btn-orange mx-3">Submit</button>
+    </div>
+ </form>
+
+</div>

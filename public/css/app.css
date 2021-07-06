@@ -327,3 +327,41 @@ background-color: var(--c-app-white);
 .services-card {
     padding: 0;
 }
+
+
+.carrousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+
+.carrousel .category-card {
+    margin: 25px 0px 25px;
+    outline: 0px;
+    box-shadow: none;
+}
+
+.search {
+    margin-left: 45%;
+}
+
+.btn-green:hover {
+    background-color: var(--c-app-dark-green);
+    color: var(--c-app-white)
+}
+
+.new-work {
+    min-height: 60vh;
+}
+
+#date {
+    border: 1px solid #ced4da;
+    color: var(--c-app-text);
+    padding: .375rem .75rem;
+}
+
+
+.label-date {
+    display: block;
+
+}

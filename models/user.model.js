@@ -62,6 +62,20 @@ userSchema.virtual('services', {
   justOne: false,
 })
 
+userSchema.virtual('works', {
+  ref: 'Work',
+  localField: '_id',
+  foreignField: 'createdBy',
+  justOne: false,
+})
+
+userSchema.virtual('works', {
+  ref: 'Work',
+  localField: '_id',
+  foreignField: 'requestedBy',
+  justOne: false,
+})
+
 
 userSchema.pre('save', function (next) {
   const user = this;

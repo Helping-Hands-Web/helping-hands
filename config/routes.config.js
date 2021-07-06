@@ -6,6 +6,7 @@ const users = require('../controllers/users.controller');
 const services = require('../controllers/services.controller');
 const secure = require('../middlewares/secure.mid');
 const upload = require('./multer.config');
+const works = require('../controllers/works.controller');
 
 
 router.get('/', secure.isNotAuthenticated, common.home);
@@ -33,6 +34,9 @@ router.get('/dashboard', secure.isAuthenticated, users.dashboard);
 router.get('/services/new', secure.isAuthenticated, services.create);
 router.post('/services/new', secure.isAuthenticated, services.doCreate);
 router.get('/services', secure.isAuthenticated, services.list);
+
+router.get('/services/:id/work', secure.isAuthenticated, works.create);
+router.post('/services/:id/work', secure.isAuthenticated, works.doCreate);
 
 
 module.exports = router
