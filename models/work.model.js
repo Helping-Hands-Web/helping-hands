@@ -4,7 +4,18 @@ const Schema = mongoose.Schema;
 
 
 const workSchema = new Schema({
-   
+    title: {
+        type: String,
+    },
+
+    description: {
+        type: String,
+    },
+
+    tokens: {
+        type: Number,
+    },
+
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
@@ -23,7 +34,7 @@ const workSchema = new Schema({
         required: true,
     },
 
-    dueDate: {
+    date: {
         type: Date,
     },
 

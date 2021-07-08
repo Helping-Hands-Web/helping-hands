@@ -8,18 +8,30 @@ const categories = Object.keys(require('../data/categories'));
 
 
 module.exports.create = (req, res, next) => {
-    res.render('works/new');
+    res.render('works/new', { id: req.params.id });
 };
 
-// module.exports.doCreate = (req, res, next) => {
-//     Service.find('id' = req.params.id)
-    
-//     .const work = new Work({
-//         message: req.body.message,
-//         date: req.body.date,
-//         createdBy: req.body.service.createdBy,
-//         requestedBy: req.user.id,
-        
-//     })
-   
-// }
+module.exports.doCreate = (req, res, next) => {
+        Service.findById(req.params.id)
+            .then(service => {
+                const work = new Work({       
+                    title: service.title,
+                    description: service.description,
+                    tokens: service.tokens,  
+                    message: req.body.message,
+                    date: req.body.date,
+                    service: service,
+                    createdBy: service.createdBy,
+                    requestedBy: req.user.id,
+                    status: "pending"
+                })
+                work.save()
+                .then(() => res.redirect('/dashboard'))
+                .catch((error) => next(error))
+            })
+            .catch()
+
+       
+
+       
+}

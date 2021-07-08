@@ -36,6 +36,79 @@
              </div>
            </div>
         {{/each}}
-    </div>
+      </div>
+
+
+    <div class="card mt-3">
+      <div class="card-header services-title px-3">
+        <h4 class="c-app-orange text-center mt-2">My Works</h4>
+
+      </div>
+
+
+       {{#each user.worksCreated as |work|}} 
+        
+        {{#workIsCreatedBy user=../user work=work}} 
+           <div>
+             <div class="row row-services list-group-item service-list"> 
+                 <div class="col-xs-3 col-md-1">
+                    <a href="/users/{{work.requestedBy._id}}">
+                        <div class="avatar-img mt-1" style="background-image: url('{{work.requestedBy.avatar}}')"></div>
+                    </a>                 
+                 </div>
+         
+                <div class="col-xs-9 col-md-10 mt-1">
+                    <h5 class="c-app-text">{{work.title}}</h5>
+                    <p class="c-app-text">{{work.date}}</p>
+                    <p class="c-app-text">{{work.message}}</p>  
+                    <p class="c-app-text">{{work.status}}</p>                   
+                </div>
+
+              <div class="col-xs-12 col-md-1">
+                
+                <h2 class="c-app-green text-center mt-2">{{work.tokens}}<span class="icon-chip"></span></h2>
+                   {{#workIsPending work=work}}  
+                    <a class="btn bg-app-green text-white btn-green mt-2" href="/work/edit">Confirm</a>
+                    <a class="btn bg-app-green text-white btn-green mt-2" href="/services/{{service.id}}/work">Cancel</a>
+                  {{/workIsPending}} 
+              </div>
+             </div>
+           </div>
+          {{/workIsCreatedBy }}   
+      {{/each}}
+      </div>
+
+<div class="card mt-3">
+      <div class="card-header services-title px-3">
+        <h4 class="c-app-orange text-center mt-2">My Requests</h4>
+
+      </div>
+       {{#each user.worksRequested as |work|}} 
+          {{#workIsRequestedBy user=../user work=work}}       
+           <div>
+             <div class="row row-services list-group-item service-list"> 
+                         
+                  <div class="col-xs-3 col-md-1">
+                    <a href="/users/{{work.createdBy._id}}">
+                        <div class="avatar-img mt-1" style="background-image: url('{{work.createdBy.avatar}}')"></div>
+                    </a>                 
+                 </div>
+                <div class="col-xs-9 col-md-10 mt-1">
+                    <h5 class="c-app-text">{{work.title}}</h5>
+                    <p class="c-app-text">{{work.date}}</p>
+                    <p class="c-app-text">{{work.message}}</p>                    
+                </div>
+
+              <div class="col-xs-12 col-md-1">
+                
+                <h2 class="c-app-green text-center mt-2">{{work.tokens}}<span class="icon-chip"></span></h2>
+                
+              </div>
+             </div>
+           </div>
+          {{/workIsRequestedBy }}
+        {{/each}}
+      </div>
+
 </div>
 

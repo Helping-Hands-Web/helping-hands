@@ -62,14 +62,14 @@ userSchema.virtual('services', {
   justOne: false,
 })
 
-userSchema.virtual('works', {
+userSchema.virtual('worksCreated', {
   ref: 'Work',
   localField: '_id',
   foreignField: 'createdBy',
   justOne: false,
 })
 
-userSchema.virtual('works', {
+userSchema.virtual('worksRequested', {
   ref: 'Work',
   localField: '_id',
   foreignField: 'requestedBy',

@@ -48,6 +48,18 @@ module.exports.doEdit = (req, res, next) => {
 module.exports.dashboard = (req, res, next) => {
     User.findById(req.user.id)
       .populate('services')
+      .populate({
+          path: 'worksCreated',
+          populate: {
+              path: 'requestedBy'
+          }
+        })
+        .populate({
+            path: 'worksRequested',
+            populate: {
+                path: 'createdBy'
+            }
+            })
       .then((user) => {
           if (user) {
             res.render('users/dashboard', { user })

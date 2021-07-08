@@ -68,3 +68,32 @@ hbs.registerHelper('serviceIsNotOwnedBy', function (options) {
       return options.inverse(this);
     }
   });
+
+hbs.registerHelper('workIsCreatedBy', function (options) {
+    const { user, work } = options.hash;
+
+    if (user && (user._id.toString() == work?.createdBy._id.toString())) {
+      return options.fn(this);
+    } else {
+      return options.inverse(this);
+    }
+  });
+
+hbs.registerHelper('workIsRequestedBy', function (options) {
+    const { user, work } = options.hash;
+
+    if (user && user._id.toString() == work?.requestedBy._id.toString()) {
+      return options.fn(this);
+    } else {
+      return options.inverse(this);
+    }
+  });
+
+hbs.registerHelper('workIsPending', function(option) {
+    const { work } = option.hash;
+    if (work.status == "pending") {
+        return option.fn(this);
+      } else {
+        return option.inverse(this);
+      }
+})

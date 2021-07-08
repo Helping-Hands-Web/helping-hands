@@ -6,6 +6,7 @@ const logger = require('morgan');
 const path = require('path');
 const passport = require('passport');
 const categories = require('./data/categories');
+require('moment')
 
 
 //Configurations
