@@ -28,7 +28,7 @@ module.exports.doRegisterEmail = (req, res, next) => {
 
                 return User.create(user).then((user) =>{
                   mailer.sendValidationEmail(user);
-                    res.redirect('/login');
+                    res.render('auth/email');
                 });
             }
         })
