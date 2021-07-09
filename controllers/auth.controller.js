@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../models/user.model');
+const mailer = require('../config/mailer.config');
 const passport = require('passport');
 
 module.exports.register = (req, res, next) => {
@@ -26,6 +27,7 @@ module.exports.doRegisterEmail = (req, res, next) => {
                 user = { name, email, password } = req.body;
 
                 return User.create(user).then((user) =>{
+                  mailer.sendValidationEmail(user);
                     res.redirect('/login');
                 });
             }
@@ -37,6 +39,14 @@ module.exports.doRegisterEmail = (req, res, next) => {
                 next(error);
             }
         });
+};
+
+module.exports.activate = (req, res, next) => {
+  User.findByIdAndUpdate(req.params.id, { active: true })
+    .then(() => {
+      res.redirect('/login');
+    })
+    .catch(next);
 };
 
 module.exports.loginWithGoogle = (req, res, next) => {

@@ -29,7 +29,7 @@ const userSchema = new Schema({
 
     active: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     social: {
       google: {

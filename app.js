@@ -7,6 +7,8 @@ const path = require('path');
 const passport = require('passport');
 const categories = require('./data/categories');
 const moment = require('moment');
+const nodemailer = require('nodemailer');
+const smtpTransport = require('nodemailer-smtp-transport');
 
 //Configurations
 require('./config/hbs.config');
@@ -53,9 +55,7 @@ app.use((error, req, res, next) => {
         message:error.message,
         error: req.app.get('env') === 'development' ? error : {},
         });
-});
-
-
+});  
 
 //port
 const port = Number(process.env.PORT || 3000);
