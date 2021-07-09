@@ -62,7 +62,6 @@ hbs.registerHelper('categoryIcon', (category) => {
 
 hbs.registerHelper('serviceIsNotOwnedBy', function (options) {
     const { user, service } = options.hash;
-
     if (user && user._id.toString() != service?.createdBy._id.toString()) {
       return options.fn(this);
     } else {

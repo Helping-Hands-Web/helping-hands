@@ -44,15 +44,12 @@ module.exports.doCreate = (req, res, next) => {
 
 module.exports.list = (req, res, next) => {
     const { search, categories } = req.query;
-    console.log(typeof(req.query.search))
-    console.log('categories ', categories)
     const criterial = {}
     if (search || categories) {
        criterial.$and = [] 
     }
 
     if (search) {
-        console.log('entro en search', criterial)
         criterial.$and.push({$or:[{
                 title: new RegExp(search, 'i')
             },
@@ -62,7 +59,6 @@ module.exports.list = (req, res, next) => {
         ]       })
     } 
     if (categories) {
-        console.log('entro en search', criterial)
         criterial.$and.push({categories : categories})
     }
 

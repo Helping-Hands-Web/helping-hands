@@ -18,7 +18,7 @@ module.exports.sendValidationEmail = (user) => {
       subject: 'Welcome to Helping Hands! 🤝 ',
       html: `   
       <body style="background-color: #f3f3f3; padding:0; margin:0; border:none; border-spacing: 0px; border-collapse: collapse; vertical-align:top;">
-      <table style="padding:0; margin:auto; margin-top:40px; border-spacing: 0px; border-collapse: collapse;" cellpadding="0" cellspacing="0" width="520">
+      <table style="padding:0; margin:auto; border-spacing: 0px; border-collapse: collapse;" cellpadding="0" cellspacing="0" width="520">
           <tr style="background-color:#fff; padding:0;  border:none; border-spacing: 0px; border-collapse: collapse;" cellpadding="0" cellspacing="0">
           <td style="padding:0; margin:0; border:none; border-spacing: 0px; border-collapse: collapse; background-color:#fff; text-align:center">
                 <img src="https://res.cloudinary.com/ironhack-helping-hands/image/upload/v1625845364/helping-hands/helping_hands_only_vjmpnv.png" style="margin-top: 40px; " alt="helping-hands-logo">          
