@@ -18,8 +18,7 @@
                         </div> 
                       {{/each}}
                 </div>
-                  
-             <button type="submit" class="btn bg-app-orange me-0 c-app-white px-3 btn-orange fs-5 search">Search</button>
+             <button type="submit" class="btn bg-app-orange me-0 c-app-white px-3 btn-orange fs-5 mt-4">Search</button>
             </form>
             
         </div>
@@ -40,7 +39,7 @@
                     </a>                     
                  </div>
          
-                <div class="col-xs-9 col-md-10 mt-1">
+                <div class="col-xs-9 col-md-9  col-lg-10 mt-1">
                     <h5 class="c-app-text">{{service.title}}</h5>
                     <p class="c-app-text">{{service.description}}</p>
                     <p class="fs-2 mb-1">
@@ -51,7 +50,7 @@
                     
                 </div>
 
-              <div class="col-xs-12 col-md-1">
+              <div class="col-xs-12 col-md-2 col-lg-1">
                 
                 <h2 class="c-app-green text-center mt-2">{{service.tokens}}<span class="icon-chip"></span></h2>
                 {{#serviceIsNotOwnedBy user=../currentUser service=service}}

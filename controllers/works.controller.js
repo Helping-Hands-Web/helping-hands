@@ -35,3 +35,44 @@ module.exports.doCreate = (req, res, next) => {
 
        
 }
+
+
+module.exports.doConfirm = ( req, res, next) => {
+
+    Work.findByIdAndUpdate(req.params.id, {status: 'Confirmed'})
+    .then((work) => {
+        res.redirect('/dashboard')
+    })
+    .catch((error) => next(error))
+}
+
+
+module.exports.doDone = ( req, res, next) => {
+
+    Work.findByIdAndUpdate(req.params.id, {status: 'Done'})
+    .then((work) => {
+        res.redirect('/dashboard')
+    })
+    .catch((error) => next(error))
+}
+
+// module.exports.doConfirm = ( req, res, next) => {
+//     Work.findByIdAndUpdate(req.params.id, {status: 'Confirmed'})
+//     .populate('requestedBy')
+//     .then((work) => {
+//         User.findByIdAndUpdate(work.requestedBy._id, {tokens: requestedBy.tokens - work.tokens})
+//         .then((user) => res.redirect('/dashboard'))
+//         .catch((error) => next(error))
+//     })
+//     .catch((error) => next(error))
+// }
+
+
+module.exports.doCancel = ( req, res, next) => {
+
+    Work.findByIdAndUpdate(req.params.id, {status: 'Cancelled'})
+    .then((work) => {
+        res.redirect('/dashboard')
+    })
+    .catch((error) => next(error))
+}

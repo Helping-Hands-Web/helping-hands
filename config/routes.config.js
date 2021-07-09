@@ -38,5 +38,10 @@ router.get('/services', secure.isAuthenticated, services.list);
 router.get('/services/:id/work', secure.isAuthenticated, works.create);
 router.post('/services/:id/work', secure.isAuthenticated, works.doCreate);
 
+router.post('/work/:id/confirm', secure.isAuthenticated, secure.workOwner, works.doConfirm);
+router.post('/work/:id/cancel', secure.isAuthenticated, secure.workOwner, works.doCancel);
+router.post('/work/:id/done', secure.isAuthenticated, secure.workOwner, works.doDone);
+
+
 
 module.exports = router

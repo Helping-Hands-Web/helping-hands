@@ -68,14 +68,18 @@
                       <p class="c-app-green"><span class="c-app-text">Status: </span>{{work.status}}</p> 
                     {{/workIsConfirmed}} 
                     {{#workIsCancelled work=work}}  
-                      <p class="c-app-text">Status: {{work.status}}</p> 
+                      <p class="c-app-grey"><span class="c-app-text">Status: </span>{{work.status}}</p> 
                     {{/workIsCancelled}} 
                     {{#workIsDone work=work}}  
-                      <p class="c-app-text">Status: {{work.status}}</p> 
+                      <p class="c-app-grey"><span class="c-app-text">Status: </span>{{work.status}}</p> 
                     {{/workIsDone}}     
                     {{#workIsPending work=work}}  
-                      <a class="btn bg-app-green text-white btn-green mt-2" href="/work/{{work.id}}/confirm"><i class="fa fa-check"></i></a>
-                      <a class="btn bg-app-green text-white btn-green mt-2" href="/work/{{work.id}}/cancel"><i class="fa fa-times"></i></a>
+                    <form action="/work/{{work.id}}/confirm" method="post" class="inline-form">
+                      <button type="submit" class="btn bg-app-green text-white btn-green mt-2"><i class="fa fa-check"></i></button>
+                    </form>
+                    <form action="/work/{{work.id}}/cancel" method="post" class="inline-form">
+                      <button type="submit" class="btn bg-app-green text-white btn-green mt-2"><i class="fa fa-times"></i></button>
+                    </form>
                     {{/workIsPending}}               
                 </div>
 
@@ -117,14 +121,26 @@
                     <p class="c-app-green"><span class="c-app-text">Status: </span>{{work.status}}</p> 
                   {{/workIsConfirmed}} 
                   {{#workIsCancelled work=work}}  
-                    <p class="c-app-text">Status: {{work.status}}</p> 
+                    <p class="c-app-grey"><span class="c-app-text">Status: </span>{{work.status}}</p> 
                   {{/workIsCancelled}} 
                   {{#workIsDone work=work}}  
-                    <p class="c-app-text">Status: {{work.status}}</p> 
+                    <p class="c-app-grey"><span class="c-app-text">Status: </span>{{work.status}}</p> 
                   {{/workIsDone}}           
                   {{#workIsPending work=work}}  
-                    <a class="btn bg-app-green text-white btn-green mt-2" href="/work/{{work.id}}/cancel"><i class="fa fa-times"></i></a>
+                  <form action="/work/{{work.id}}/cancel" method="post" class="inline-form">
+                      <button type="submit" class="btn bg-app-green text-white btn-green mt-2"><i class="fa fa-times"></i></button>
+                  </form>
                   {{/workIsPending}}  
+                   {{#workIsConfirmed work=work}}  
+                  <form action="/work/{{work.id}}/done" method="post">
+                      <button type="submit" class="btn bg-app-green text-white btn-green mt-2">Done</button>
+                  </form>
+                  {{/workIsConfirmed}}  
+                  {{#workIsDone work=work}}  
+                  <form action="/work/{{work.id}}/rating" method="post">
+                      <button type="submit" class="btn bg-app-green text-white btn-green mt-2">Rate this Help!</button>
+                  </form>
+                  {{/workIsDone}}  
                 </div>
 
                 

@@ -60,6 +60,7 @@ module.exports.dashboard = (req, res, next) => {
                 path: 'createdBy'
             }
             })
+        .sort({date: -1})
       .then((user) => {
           if (user) {
             res.render('users/dashboard', { user })
