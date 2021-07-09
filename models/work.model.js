@@ -40,8 +40,8 @@ const workSchema = new Schema({
 
     status: {
         type: String, 
-        enum: ['pending', 'confirmed', 'done', 'cancel'],
-        default: 'pending',
+        enum: ['Pending', 'Confirmed', 'Done', 'Cancel'],
+        default: 'Pending',
     },
 
     message: {

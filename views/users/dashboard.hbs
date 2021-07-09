@@ -40,8 +40,9 @@
 
 
     <div class="card mt-3">
-      <div class="card-header services-title px-3">
+      <div class="card-header px-3 header-works">
         <h4 class="c-app-orange text-center mt-2">My Works</h4>
+        <h5 class="c-app-orange text-center small">People that need my help</h5>
 
       </div>
 
@@ -58,19 +59,30 @@
                  </div>
          
                 <div class="col-xs-9 col-md-10 mt-1">
-                    <h5 class="c-app-text">{{work.title}}</h5>
-                    <p class="c-app-text">{{work.date}}</p>
-                    <p class="c-app-text">{{work.message}}</p>  
-                    <p class="c-app-text">{{work.status}}</p>                   
+                    <h5 class="c-app-text">{{work.message}}</h5>
+                    <p class="c-app-text small mb-1">{{prettyDate work.date}}</p>
+                    {{#workIsPending work=work}}  
+                      <p class="c-app-orange"><span class="c-app-text">Status: </span>{{work.status}}</p> 
+                    {{/workIsPending}}       
+                    {{#workIsConfirmed work=work}}  
+                      <p class="c-app-green"><span class="c-app-text">Status: </span>{{work.status}}</p> 
+                    {{/workIsConfirmed}} 
+                    {{#workIsCancelled work=work}}  
+                      <p class="c-app-text">Status: {{work.status}}</p> 
+                    {{/workIsCancelled}} 
+                    {{#workIsDone work=work}}  
+                      <p class="c-app-text">Status: {{work.status}}</p> 
+                    {{/workIsDone}}     
+                    {{#workIsPending work=work}}  
+                      <a class="btn bg-app-green text-white btn-green mt-2" href="/work/{{work.id}}/confirm"><i class="fa fa-check"></i></a>
+                      <a class="btn bg-app-green text-white btn-green mt-2" href="/work/{{work.id}}/cancel"><i class="fa fa-times"></i></a>
+                    {{/workIsPending}}               
                 </div>
 
               <div class="col-xs-12 col-md-1">
                 
                 <h2 class="c-app-green text-center mt-2">{{work.tokens}}<span class="icon-chip"></span></h2>
-                   {{#workIsPending work=work}}  
-                    <a class="btn bg-app-green text-white btn-green mt-2" href="/work/edit">Confirm</a>
-                    <a class="btn bg-app-green text-white btn-green mt-2" href="/services/{{service.id}}/work">Cancel</a>
-                  {{/workIsPending}} 
+                   
               </div>
              </div>
            </div>
@@ -79,8 +91,9 @@
       </div>
 
 <div class="card mt-3">
-      <div class="card-header services-title px-3">
+      <div class="card-header px-3 header-works">
         <h4 class="c-app-orange text-center mt-2">My Requests</h4>
+        <h5 class="c-app-orange text-center small">People I need to help me</h5>
 
       </div>
        {{#each user.worksRequested as |work|}} 
@@ -95,9 +108,26 @@
                  </div>
                 <div class="col-xs-9 col-md-10 mt-1">
                     <h5 class="c-app-text">{{work.title}}</h5>
-                    <p class="c-app-text">{{work.date}}</p>
-                    <p class="c-app-text">{{work.message}}</p>                    
+                    <p class="c-app-text small mb-1">{{prettyDate work.date}}</p>
+                    <p class="c-app-text mb-1">{{work.message}}</p>  
+                  {{#workIsPending work=work}}  
+                    <p class="c-app-orange"><span class="c-app-text">Status: </span>{{work.status}}</p> 
+                  {{/workIsPending}}       
+                  {{#workIsConfirmed work=work}}  
+                    <p class="c-app-green"><span class="c-app-text">Status: </span>{{work.status}}</p> 
+                  {{/workIsConfirmed}} 
+                  {{#workIsCancelled work=work}}  
+                    <p class="c-app-text">Status: {{work.status}}</p> 
+                  {{/workIsCancelled}} 
+                  {{#workIsDone work=work}}  
+                    <p class="c-app-text">Status: {{work.status}}</p> 
+                  {{/workIsDone}}           
+                  {{#workIsPending work=work}}  
+                    <a class="btn bg-app-green text-white btn-green mt-2" href="/work/{{work.id}}/cancel"><i class="fa fa-times"></i></a>
+                  {{/workIsPending}}  
                 </div>
+
+                
 
               <div class="col-xs-12 col-md-1">
                 

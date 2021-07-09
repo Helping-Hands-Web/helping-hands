@@ -172,7 +172,6 @@ a:hover {
     flex-direction: row;
     justify-content: space-between;
     align-content: baseline;
-    
 }
 
 
@@ -364,4 +363,10 @@ background-color: var(--c-app-white);
 .label-date {
     display: block;
 
+}
+
+.header-works {
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
 }

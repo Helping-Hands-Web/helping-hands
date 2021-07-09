@@ -23,7 +23,7 @@ module.exports.doCreate = (req, res, next) => {
                     service: service,
                     createdBy: service.createdBy,
                     requestedBy: req.user.id,
-                    status: "pending"
+                    status: "Pending"
                 })
                 work.save()
                 .then(() => res.redirect('/dashboard'))

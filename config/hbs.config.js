@@ -4,6 +4,7 @@ const path = require('path');
 let isCurrentUser = false;
 const categories = require('../data/categories')
 const Service = require('../models/service.model');
+const moment = require('moment');
 
 hbs.registerPartials((path.join(__dirname, '../views/partials')))
 
@@ -91,9 +92,40 @@ hbs.registerHelper('workIsRequestedBy', function (options) {
 
 hbs.registerHelper('workIsPending', function(option) {
     const { work } = option.hash;
-    if (work.status == "pending") {
+    if (work.status == "Pending") {
         return option.fn(this);
       } else {
         return option.inverse(this);
       }
+})
+
+hbs.registerHelper('workIsConfirmed', function(option) {
+    const { work } = option.hash;
+    if (work.status == "Confirmed") {
+        return option.fn(this);
+      } else {
+        return option.inverse(this);
+      }
+})
+
+hbs.registerHelper('workIsCancelled', function(option) {
+    const { work } = option.hash;
+    if (work.status == "Cancelled") {
+        return option.fn(this);
+      } else {
+        return option.inverse(this);
+      }
+})
+
+hbs.registerHelper('workIsDone', function(option) {
+    const { work } = option.hash;
+    if (work.status == "Done") {
+        return option.fn(this);
+      } else {
+        return option.inverse(this);
+      }
+})
+
+hbs.registerHelper('prettyDate', (date) => {
+    return moment(date).format("MMMM Do YYYY")
 })
