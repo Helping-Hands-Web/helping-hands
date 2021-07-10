@@ -19,6 +19,8 @@
   "homepage": "https://github.com/Helping-Hands-Web/helping-hands#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bootstrap-sweetalert": "^1.0.1",
+    "bower": "^1.8.12",
     "cloudinary": "^1.26.1",
     "connect-mongo": "^4.4.1",
     "dotenv": "^10.0.0",

@@ -10,6 +10,7 @@ const moment = require('moment');
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-smtp-transport');
 
+
 //Configurations
 require('./config/hbs.config');
 require('./config/db.config');
@@ -32,6 +33,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
+    console.log("session data", req.session)
+    if (req.session.flash) {
+        res.locals.flash = req.session.flash
+        req.session.flash = null
+    }
+
     res.locals.allCategories = categories;
     res.locals.path = req.path;
     res.locals.currentUser = req.user;

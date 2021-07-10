@@ -379,5 +379,23 @@ background-color: var(--c-app-white);
     
 }
 
+.swal-button {
+    background-color: var(--c-app-orange);
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 24px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.swal-button:hover {
+    background-color: var(--c-app-dark-orange);
+   
+}
+
 
 
