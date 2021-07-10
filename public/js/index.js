@@ -14,7 +14,8 @@ function onClick(event) {
   };
 };
 
-  
+
+
 
 document.querySelectorAll(".category-card").forEach((card) => {
   card.addEventListener("click", onClick);
@@ -39,3 +40,5 @@ document.querySelectorAll(".category-card").forEach((card) => {
       icon.classList.add('fa-eye');
     }
   }
+
+

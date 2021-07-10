@@ -135,12 +135,7 @@
                   <form action="/work/{{work.id}}/done" method="post">
                       <button type="submit" class="btn bg-app-green text-white btn-green mt-2">Done</button>
                   </form>
-                  {{/workIsConfirmed}}  
-                  {{#workIsDone work=work}}  
-                  <form action="/work/{{work.id}}/rating" method="post">
-                      <button type="submit" class="btn bg-app-green text-white btn-green mt-2">Rate this Help!</button>
-                  </form>
-                  {{/workIsDone}}  
+                  {{/workIsConfirmed}}   
                 </div>
 
                 

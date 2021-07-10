@@ -50,7 +50,6 @@ passport.use(
             callbackURL: process.env.G_REDIRECT_URI || '/authenticate/google/cb',
         },
         (accessToken, refreshToken, profile, next) => {
-            // no necesitamos guardar el token si no need info adicional del perfil en google
             const googleId = profile.id;
             const name = profile.displayName;
             const email = profile.emails[0] ? profile.emails[0].value : undefined;

@@ -69,12 +69,22 @@ module.exports.doConfirm = ( req, res, next) => {
 
 
 module.exports.doDone = ( req, res, next) => {
-
-    Work.findByIdAndUpdate(req.params.id, {status: 'Done'})
-    .then((work) => {
-        res.redirect('/dashboard')
-    })
-    .catch((error) => next(error))
+    Work.findById(req.params.id)
+        .populate('createdBy')
+        .then((work) => {
+            work.createdBy.tokens = work.createdBy.tokens + work.tokens
+            work.createdBy.save()
+                .then((user) => {
+                    work.status = 'Done'
+                    work.save()
+                        .then((work) => {
+                            res.redirect('/dashboard')
+                        })
+                        .catch(next)
+                })
+                .catch(next)
+        })
+        .catch(next)
 }
 
 
@@ -84,10 +94,7 @@ module.exports.doCancel = ( req, res, next) => {
     Work.findById(req.params.id)
         .populate('requestedBy')
         .then((work) => {
-            console.log('reqiuested', work.requestedBy.tokens)
-            console.log('work', work.tokens)
-            console.log('adding tokens when cancel', work.requestedBy.tokens += work.tokens)
-            work.requestedBy.tokens += work.tokens
+            work.requestedBy.tokens = work.requestedBy.tokens + work.tokens
             work.requestedBy.save()
                 .then((user) => {
                     work.status = 'Cancelled'

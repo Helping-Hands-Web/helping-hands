@@ -50,17 +50,22 @@ module.exports.dashboard = (req, res, next) => {
       .populate('services')
       .populate({
           path: 'worksCreated',
+          options:  {
+            sort: { 'date': -1 }
+          },
           populate: {
               path: 'requestedBy'
           }
         })
         .populate({
             path: 'worksRequested',
+            options:  {
+                sort: { 'date': -1 }
+            },
             populate: {
                 path: 'createdBy'
             }
-            })
-        .sort({date: -1})
+        })
       .then((user) => {
           if (user) {
             res.render('users/dashboard', { user })

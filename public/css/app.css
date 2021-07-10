@@ -316,7 +316,7 @@ background-color: var(--c-app-white);
     min-height: 60vh;
 }
 
-#date {
+#datefield {
     border: 1px solid #ced4da;
     color: var(--c-app-text);
     padding: .375rem .75rem;
@@ -392,10 +392,7 @@ background-color: var(--c-app-white);
     cursor: pointer;
 }
 
-.swal-button:hover {
-    background-color: var(--c-app-dark-orange);
-   
-}
+
 
 
 
