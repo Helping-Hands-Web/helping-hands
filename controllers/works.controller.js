@@ -35,6 +35,8 @@ module.exports.doCreate = (req, res, next) => {
                                work.requestedBy.tokens -= work.tokens;
                                work.requestedBy.save()
                                 .then((user) => {
+                                    console.log('work', work.requestedBy.tokens)
+                                    console.log('user tokens', user.tokens)
                                     work.status = 'Pending'
                                     work.save()
                                         .then((work) => {
@@ -78,15 +80,24 @@ module.exports.doDone = ( req, res, next) => {
 
 
 
-// module.exports.doCancel = ( req, res, next) => {
-
-//     Work.findByIdAndUpdate(req.params.id, {status: 'Cancelled'})
-//     .populate('requestedBy')
-//     .then((work) => {
-//         work.requestedBy.tokens += work.tokens;
-//         res.redirect('/dashboard')
-        
-//     })
-//     .catch((error) => next(error))
-// }
-
+module.exports.doCancel = ( req, res, next) => {
+    Work.findById(req.params.id)
+        .populate('requestedBy')
+        .then((work) => {
+            console.log('reqiuested', work.requestedBy.tokens)
+            console.log('work', work.tokens)
+            console.log('adding tokens when cancel', work.requestedBy.tokens += work.tokens)
+            work.requestedBy.tokens += work.tokens
+            work.requestedBy.save()
+                .then((user) => {
+                    work.status = 'Cancelled'
+                    work.save()
+                        .then((work) => {
+                            res.redirect('/dashboard')
+                        })
+                        .catch(next)
+                })
+                .catch(next)
+        })
+        .catch(next)
+}
