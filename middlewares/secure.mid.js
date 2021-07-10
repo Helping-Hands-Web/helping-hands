@@ -11,7 +11,7 @@ module.exports.isAuthenticated = (req, res, next) => {
 
 module.exports.isNotAuthenticated = (req, res, next) => {
     if(req.user) {
-        res.redirect('/');
+        res.redirect('/dashboard');
     } else {
         next();
     }

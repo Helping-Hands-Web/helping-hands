@@ -39,12 +39,41 @@ module.exports.doCreate = (req, res, next) => {
 
 module.exports.doConfirm = ( req, res, next) => {
 
-    Work.findByIdAndUpdate(req.params.id, {status: 'Confirmed'})
-    .then((work) => {
-        res.redirect('/dashboard')
-    })
-    .catch((error) => next(error))
+    Work.findById(req.params.id)
+        .populate('requestedBy')
+        .then((work) => {
+            if(work.requestedBy.tokens >= work.tokens) {
+                work.requestedBy.tokens -= work.tokens
+                work.requestedBy.save()
+                    .then((user) => {
+                        work.status = 'Confirmed'
+                        work.save()
+                            .then((work) => {
+                                res.redirect('/dashboard')
+                            })
+                            .catch(next)
+                    })
+                    .catch(next)
+            } else {
+                res.send("You don't have credits")
+                // TODO: 
+            }
+
+        })
+        .catch(next)
+
 }
+
+// module.exports.doConfirm = ( req, res, next) => 
+//     Work.findByIdAndUpdate(req.params.id, {status: 'Confirmed'})
+//     .populate('requestedBy')
+//     .then((work) => {
+//         User.findByIdAndUpdate(work.requestedBy._id, {tokens: requestedBy.tokens - work.tokens})
+//         .then((user) => res.redirect('/dashboard'))
+//         .catch((error) => next(error))
+//     })
+//     .catch((error) => next(error))
+// }
 
 
 module.exports.doDone = ( req, res, next) => {
@@ -56,16 +85,7 @@ module.exports.doDone = ( req, res, next) => {
     .catch((error) => next(error))
 }
 
-// module.exports.doConfirm = ( req, res, next) => {
-//     Work.findByIdAndUpdate(req.params.id, {status: 'Confirmed'})
-//     .populate('requestedBy')
-//     .then((work) => {
-//         User.findByIdAndUpdate(work.requestedBy._id, {tokens: requestedBy.tokens - work.tokens})
-//         .then((user) => res.redirect('/dashboard'))
-//         .catch((error) => next(error))
-//     })
-//     .catch((error) => next(error))
-// }
+
 
 
 module.exports.doCancel = ( req, res, next) => {
