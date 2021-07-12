@@ -4,41 +4,41 @@ const mailer = require('../config/mailer.config');
 const passport = require('passport');
 
 module.exports.register = (req, res, next) => {
-    res.render('auth/register');
+  res.render('auth/register');
 };
 
 module.exports.registerEmail = (req, res, next) => {
-    res.render('auth/register-email');
+  res.render('auth/register-email');
 };
 
 module.exports.doRegisterEmail = (req, res, next) => {
-    function renderWithErrors(errors) {
-        res.render('auth/register-email', {
-            user: req.body,
-            errors: errors,
-        });
-    }
+  function renderWithErrors(errors) {
+    res.render('auth/register-email', {
+      user: req.body,
+      errors: errors,
+    });
+  }
 
-    User.findOne({ email: req.body.email})
-        .then((user) => {
-            if(user) {
-                renderWithErrors({email: 'email already registered'});
-            } else {
-                user = { name, email, password } = req.body;
+  User.findOne({ email: req.body.email})
+      .then((user) => {
+          if(user) {
+            renderWithErrors({email: 'email already registered'});
+          } else {
+            user = { name, email, password } = req.body;
 
-                return User.create(user).then((user) =>{
-                  mailer.sendValidationEmail(user);
-                    res.render('auth/email');
-                });
-            }
-        })
-        .catch((error) => {
-            if (error instanceof mongoose.Error.ValidationError) {
-                renderWithErrors(error.errors);
-            } else {
-                next(error);
-            }
-        });
+            return User.create(user).then((user) =>{
+              mailer.sendValidationEmail(user);
+                res.render('auth/email');
+            });
+          }
+      })
+      .catch((error) => {
+          if (error instanceof mongoose.Error.ValidationError) {
+            renderWithErrors(error.errors);
+          } else {
+            next(error);
+          }
+      });
 };
 
 module.exports.activate = (req, res, next) => {
@@ -76,7 +76,7 @@ module.exports.doLoginWithGoogle = (req, res, next) => {
 
 
 module.exports.login = (req, res, next) => {
-    res.render('auth/login')
+  res.render('auth/login')
 };
 
 

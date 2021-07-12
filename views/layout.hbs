@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-        const title = "Helping Hands";
-        const blurMessage = "Hey, come back!";
-        window.addEventListener("blur", () => document.title = blurMessage );
-        window.addEventListener("focus", () => document.title = title )
+      const title = "Helping Hands";
+      const blurMessage = "Hey, come back!";
+      window.addEventListener("blur", () => document.title = blurMessage );
+      window.addEventListener("focus", () => document.title = title )
     </script>
     <title>Helping Hands</title>
     <link rel="stylesheet" href="/font/css/helpinghandsfont.css" class="stylesheet">
@@ -27,20 +27,18 @@
     <link rel="stylesheet" href="/css/variables.css" class="stylesheet">
     <link rel="stylesheet" href="/css/colors.css" class="stylesheet">
     <link rel="stylesheet" href="/css/app.css" class="stylesheet">
-
-</head>
-<body>
+  </head>
+  <body>
     {{>navbar}} 
 
       {{{body}}}  
-    
+      
     {{>footer}}
 
     <script src="/js/index.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  </script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     {{#if flash}}
       <script>
@@ -49,7 +47,7 @@
           text: "{{flash}}",
           imageUrl: '/img/helping_hands_only.png'
         });
-    </script>
+      </script>
     {{/if}}
-</body>
+  </body>
 </html>

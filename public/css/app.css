@@ -6,6 +6,7 @@ body {
     grid-template-rows: auto 1fr auto; 
     color: var(--c-app-text);
     padding-top: 5%;
+    overflow-x: hidden;
 }
 
 .nav {
@@ -71,13 +72,9 @@ input[type="textarea"]:focus {
     background-repeat: no-repeat;
 }
 
-
 .row-services{
     --bs-gutter-x: 0rem;
 }
-
-
-
 
 .input-border {
     border: 1px solid var(--c-app-orange);
@@ -134,7 +131,6 @@ a:hover {
     border: 1px solid var(--c-app-orange);
 }
 
-
 .navbar-toggler:focus {
     outline:0; 
     box-shadow: none;
@@ -145,7 +141,6 @@ a:hover {
     flex-direction: row;
     justify-content: flex-end; 
 }
-
 
 .form {
     position: relative;
@@ -163,8 +158,7 @@ a:hover {
 }
 
 #add-service {
-    font-size: 1.5rem;
-    
+    font-size: 1.5rem; 
 }
 
 .services-title {
@@ -173,7 +167,6 @@ a:hover {
     justify-content: space-between;
     align-content: baseline;
 }
-
 
 .service-list {
     display: flex;
@@ -250,13 +243,11 @@ background-color: var(--c-app-white);
     background-color: rgba(98, 132, 116, 0.5);
 }
 
-
 .home-boxes {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
-
 }
 
 .card-img {
@@ -269,8 +260,6 @@ background-color: var(--c-app-white);
     overflow: hidden;
     width:75%;  
   }
-
-
 
 .intro-text {
     display: flex;
@@ -292,20 +281,17 @@ background-color: var(--c-app-white);
     padding: 0;
 }
 
-
 .carrousel {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
 }
 
-
 .carrousel .category-card {
     margin: 25px 0px 25px;
     outline: 0px;
     box-shadow: none;
 }
-
 
 .btn-green:hover {
     background-color: var(--c-app-dark-green);
@@ -321,7 +307,6 @@ background-color: var(--c-app-white);
     color: var(--c-app-text);
     padding: .375rem .75rem;
 }
-
 
 .label-date {
     display: block;
@@ -342,8 +327,18 @@ background-color: var(--c-app-white);
     width: 45px;
 }
 
-
-
+.swal-button {
+    background-color: var(--c-app-orange);
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 24px;
+    margin: auto;
+    cursor: pointer;
+}
 
 @media (min-width: 992px) {
     .section-light {
@@ -379,18 +374,7 @@ background-color: var(--c-app-white);
     
 }
 
-.swal-button {
-    background-color: var(--c-app-orange);
-    color: #fff;
-    border: none;
-    box-shadow: none;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 10px 24px;
-    margin: auto;
-    cursor: pointer;
-}
+
 
 
 

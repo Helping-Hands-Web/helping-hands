@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const Schema = mongoose.Schema;
 
-
 const workSchema = new Schema({
     title: {
         type: String,
@@ -49,11 +48,8 @@ const workSchema = new Schema({
     }
 
 },
- {timestamps : true},
+    {timestamps : true},
 );
-
-
-
 
 const Work = mongoose.model('Work', workSchema);
 module.exports = Work;

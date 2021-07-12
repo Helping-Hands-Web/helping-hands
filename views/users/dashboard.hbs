@@ -1,119 +1,110 @@
 <div class="container profile py-5">
-    <div class="bg-header">
-        <div class="avatar-img-profile mt-3" style="background-image: url('{{user.avatar}}')"></div>
-        <h2 class="c-app-orange mt-3">Hello, {{user.name}}!</h2>        
-    </div>
+  <div class="bg-header">
+    <div class="avatar-img-profile mt-3" style="background-image: url('{{user.avatar}}')"></div>
+    <h2 class="c-app-orange mt-3">Hello, {{user.name}}!</h2>        
+  </div>
 
-    <div class="card my-5">
-        <div class="card-header justify-content-centered">
-            <h4 class="c-app-orange text-center mt-2">Tokens</h4>
-        </div> 
-        <h5 class="text-center my-3 c-app-green">You have <b>{{user.tokens}}</b> tokens</h5>
-        <h1 class="text-center c-app-green icon-chip"></h1>
-        <p class="text-center mb-3">To get more tokens you need to give your help by offering your availability and skills.</p>
-    </div>
+  <div class="card my-5">
+    <div class="card-header justify-content-centered">
+      <h4 class="c-app-orange text-center mt-2">Tokens</h4>
+    </div> 
+    <h5 class="text-center my-3 c-app-green">You have <b>{{user.tokens}}</b> tokens</h5>
+    <h1 class="text-center c-app-green icon-chip"></h1>
+    <p class="text-center mb-3">To get more tokens you need to give your help by offering your availability and skills.</p>
+  </div>
 
     
     
 
-    <div class="card">
-      <div class="card-header services-title px-3">
-        <h4 class="c-app-orange text-center mt-2">My Services</h4>
-        
-         <a href="/services/new" class="btn bg-app-orange me-0 c-app-white px-3 btn-orange fs-5" id="add-service">+</a>        
-       
-      </div>
-       {{#each user.services as |service|}} 
-           <div class="container">
-             <div class="row list-group-item service-list"> 
-              <div class="col-sm-12 col-md-11">
-                <h5 class="c-app-text">{{service.title}}</h5>
-                <p class="c-app-text">{{service.description}}</p>
-              </div>
-              <div class="col-sm-12 col-md-1">
-                <h2 class="c-app-green text-center mt-2">{{service.tokens}}<span class="icon-chip"></span></h2>
-              </div>
-             </div>
-           </div>
-        {{/each}}
-      </div>
+  <div class="card">
+    <div class="card-header services-title px-3">
+      <h4 class="c-app-orange text-center mt-2">My Services</h4>
+        <a href="/services/new" class="btn bg-app-orange me-0 c-app-white px-3 btn-orange fs-5" id="add-service">+</a>        
+    </div>
+      {{#each user.services as |service|}} 
+          <div class="container">
+            <div class="row list-group-item service-list"> 
+            <div class="col-sm-12 col-md-11">
+              <h5 class="c-app-text">{{service.title}}</h5>
+              <p class="c-app-text">{{service.description}}</p>
+            </div>
+            <div class="col-sm-12 col-md-1">
+              <h2 class="c-app-green text-center mt-2">{{service.tokens}}<span class="icon-chip"></span></h2>
+            </div>
+            </div>
+          </div>
+      {{/each}}
+    </div>
 
 
     <div class="card mt-3">
       <div class="card-header px-3 header-works">
         <h4 class="c-app-orange text-center mt-2">My Works</h4>
         <h5 class="c-app-orange text-center small">People that need my help</h5>
-
       </div>
 
-
-       {{#each user.worksCreated as |work|}} 
-        
+      {{#each user.worksCreated as |work|}} 
         {{#workIsCreatedBy user=../user work=work}} 
-           <div>
-             <div class="row row-services list-group-item service-list"> 
-                 <div class="col-xs-3 col-md-1">
-                    <a href="/users/{{work.requestedBy._id}}">
-                        <div class="avatar-img mt-1" style="background-image: url('{{work.requestedBy.avatar}}')"></div>
-                    </a>                 
-                 </div>
-         
-                <div class="col-xs-9 col-md-10 mt-1">
-                    <h5 class="c-app-text">{{work.message}}</h5>
-                    <p class="c-app-text small mb-1">{{prettyDate work.date}}</p>
-                    {{#workIsPending work=work}}  
-                      <p class="c-app-orange"><span class="c-app-text">Status: </span>{{work.status}}</p> 
-                    {{/workIsPending}}       
-                    {{#workIsConfirmed work=work}}  
-                      <p class="c-app-green"><span class="c-app-text">Status: </span>{{work.status}}</p> 
-                    {{/workIsConfirmed}} 
-                    {{#workIsCancelled work=work}}  
-                      <p class="c-app-grey"><span class="c-app-text">Status: </span>{{work.status}}</p> 
-                    {{/workIsCancelled}} 
-                    {{#workIsDone work=work}}  
-                      <p class="c-app-grey"><span class="c-app-text">Status: </span>{{work.status}}</p> 
-                    {{/workIsDone}}     
-                    {{#workIsPending work=work}}  
-                    <form action="/work/{{work.id}}/confirm" method="post" class="inline-form">
-                      <button type="submit" class="btn bg-app-green text-white btn-green mt-2"><i class="fa fa-check"></i></button>
-                    </form>
-                    <form action="/work/{{work.id}}/cancel" method="post" class="inline-form">
-                      <button type="submit" class="btn bg-app-green text-white btn-green mt-2"><i class="fa fa-times"></i></button>
-                    </form>
-                    {{/workIsPending}}               
-                </div>
+          <div>
+            <div class="row row-services list-group-item service-list"> 
+              <div class="col-xs-3 col-md-1">
+                <a href="/users/{{work.requestedBy._id}}">
+                  <div class="avatar-img mt-1" style="background-image: url('{{work.requestedBy.avatar}}')"></div>
+                </a>                 
+              </div>
+        
+              <div class="col-xs-9 col-md-10 mt-1">
+                <h5 class="c-app-text">{{work.message}}</h5>
+                <p class="c-app-text small mb-1">{{prettyDate work.date}}</p>
+                {{#workIsPending work=work}}  
+                  <p class="c-app-orange"><span class="c-app-text">Status: </span>{{work.status}}</p> 
+                {{/workIsPending}}       
+                {{#workIsConfirmed work=work}}  
+                  <p class="c-app-green"><span class="c-app-text">Status: </span>{{work.status}}</p> 
+                {{/workIsConfirmed}} 
+                {{#workIsCancelled work=work}}  
+                  <p class="c-app-grey"><span class="c-app-text">Status: </span>{{work.status}}</p> 
+                {{/workIsCancelled}} 
+                {{#workIsDone work=work}}  
+                  <p class="c-app-grey"><span class="c-app-text">Status: </span>{{work.status}}</p> 
+                {{/workIsDone}}     
+                {{#workIsPending work=work}}  
+                  <form action="/work/{{work.id}}/confirm" method="post" class="inline-form">
+                    <button type="submit" class="btn bg-app-green text-white btn-green mt-2"><i class="fa fa-check"></i></button>
+                  </form>
+                  <form action="/work/{{work.id}}/cancel" method="post" class="inline-form">
+                    <button type="submit" class="btn bg-app-green text-white btn-green mt-2"><i class="fa fa-times"></i></button>
+                  </form>
+                {{/workIsPending}}               
+              </div>
 
               <div class="col-xs-12 col-md-1">
-                
                 <h2 class="c-app-green text-center mt-2">{{work.tokens}}<span class="icon-chip"></span></h2>
-                   
               </div>
-             </div>
-           </div>
-          {{/workIsCreatedBy }}   
+            </div>
+          </div>
+        {{/workIsCreatedBy }}   
       {{/each}}
-      </div>
+    </div>
 
-<div class="card mt-3">
+    <div class="card mt-3">
       <div class="card-header px-3 header-works">
         <h4 class="c-app-orange text-center mt-2">My Requests</h4>
         <h5 class="c-app-orange text-center small">People I need to help me</h5>
-
       </div>
-       {{#each user.worksRequested as |work|}} 
+        {{#each user.worksRequested as |work|}} 
           {{#workIsRequestedBy user=../user work=work}}       
-           <div>
-             <div class="row row-services list-group-item service-list"> 
-                         
-                  <div class="col-xs-3 col-md-1">
-                    <a href="/users/{{work.createdBy._id}}">
-                        <div class="avatar-img mt-1" style="background-image: url('{{work.createdBy.avatar}}')"></div>
-                    </a>                 
-                 </div>
+            <div>
+              <div class="row row-services list-group-item service-list">        
+                <div class="col-xs-3 col-md-1">
+                  <a href="/users/{{work.createdBy._id}}">
+                    <div class="avatar-img mt-1" style="background-image: url('{{work.createdBy.avatar}}')"></div>
+                  </a>                 
+                </div>
                 <div class="col-xs-9 col-md-10 mt-1">
-                    <h5 class="c-app-text">{{work.title}}</h5>
-                    <p class="c-app-text small mb-1">{{prettyDate work.date}}</p>
-                    <p class="c-app-text mb-1">{{work.message}}</p>  
+                  <h5 class="c-app-text">{{work.title}}</h5>
+                  <p class="c-app-text small mb-1">{{prettyDate work.date}}</p>
+                  <p class="c-app-text mb-1">{{work.message}}</p>  
                   {{#workIsPending work=work}}  
                     <p class="c-app-orange"><span class="c-app-text">Status: </span>{{work.status}}</p> 
                   {{/workIsPending}}       
@@ -127,29 +118,26 @@
                     <p class="c-app-grey"><span class="c-app-text">Status: </span>{{work.status}}</p> 
                   {{/workIsDone}}           
                   {{#workIsPending work=work}}  
-                  <form action="/work/{{work.id}}/cancel" method="post" class="inline-form">
-                      <button type="submit" class="btn bg-app-green text-white btn-green mt-2"><i class="fa fa-times"></i></button>
-                  </form>
+                    <form action="/work/{{work.id}}/cancel" method="post" class="inline-form">
+                        <button type="submit" class="btn bg-app-green text-white btn-green mt-2"><i class="fa fa-times"></i></button>
+                    </form>
                   {{/workIsPending}}  
-                   {{#workIsConfirmed work=work}}  
-                  <form action="/work/{{work.id}}/done" method="post">
-                      <button type="submit" class="btn bg-app-green text-white btn-green mt-2">Done</button>
-                  </form>
+                  {{#workIsConfirmed work=work}}  
+                    <form action="/work/{{work.id}}/done" method="post">
+                        <button type="submit" class="btn bg-app-green text-white btn-green mt-2">Done</button>
+                    </form>
                   {{/workIsConfirmed}}   
                 </div>
 
                 
 
-              <div class="col-xs-12 col-md-1">
-                
+                <div class="col-xs-12 col-md-1">
                 <h2 class="c-app-green text-center mt-2">{{work.tokens}}<span class="icon-chip"></span></h2>
-                
+                </div>
               </div>
-             </div>
-           </div>
+            </div>
           {{/workIsRequestedBy }}
         {{/each}}
-      </div>
-
+  </div>
 </div>
 

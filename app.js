@@ -33,7 +33,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-    console.log("session data", req.session)
+
     if (req.session.flash) {
         res.locals.flash = req.session.flash
         req.session.flash = null

@@ -1,6 +1,6 @@
 <div class="container form mt-5">
   <h2 class="c-app-green my-3">Update your profile</h2>
- <form action="/users/me/edit" method="POST" enctype="multipart/form-data">
+  <form action="/users/me/edit" method="POST" enctype="multipart/form-data">
 
     <div class="mb-3">
       <label for="name">Name</label>
@@ -16,10 +16,9 @@
       <label class="form-label" for="profilePicture">Profile Picture</label>
       <input type="file" value="{{ user.avatar }}" name="avatar" class="form-control" id="profilePicture"/> 
     </div>
+
     <div class="row justify-content-center">
       <button type="submit" class="col col-sm-8 col-md-6 col-lg-3 btn bg-app-orange c-app-bg my-3 btn-orange mx-3">Save changes</button>
     </div>
-
- </form>
-
+  </form>
 </div>

@@ -7,51 +7,49 @@ const EMAIL_PATTERN =
 const PASSWORD_PATTERN = /^.{8,}$/i;
 const SALT_ROUNDS = 10;
 
-
 const userSchema = new Schema({
-    name: {
-        type: String,
-        required: 'Name is required',
-        minLength: [3, 'Name needs at least 3 chars'],
-    },
+  name: {
+    type: String,
+    required: 'Name is required',
+    minLength: [3, 'Name needs at least 3 chars'],
+  },
 
-    email: {
+  email: {
+    type: String,
+    required: 'Email is required',
+    match: [EMAIL_PATTERN, 'Email is not valid'],
+    unique: true,
+  },
+
+  avatar: {
+    type: String,
+    default: "https://res.cloudinary.com/ironhack-helping-hands/image/upload/v1624902932/helping-hands/profile_avatar_h0n94u.jpg",
+  },
+
+  active: {
+    type: Boolean,
+    default: false,
+  },
+  social: {
+    google: {
       type: String,
-      required: 'Email is required',
-      match: [EMAIL_PATTERN, 'Email is not valid'],
-      unique: true,
     },
+  },
+  password: {
+    type: String,
+    required: 'Password is required',
+    match: [PASSWORD_PATTERN, 'Password needs at least 8 chars'],
+  },
 
-    avatar: {
-      type: String,
-      default: "https://res.cloudinary.com/ironhack-helping-hands/image/upload/v1624902932/helping-hands/profile_avatar_h0n94u.jpg",
-    },
+  description: {
+    type: String,
+    default: "Update your profile to tell us more about yourself!",
+  },
 
-    active: {
-      type: Boolean,
-      default: false,
-    },
-    social: {
-      google: {
-        type: String,
-      },
-    },
-    password: {
-      type: String,
-      required: 'Password is required',
-      match: [PASSWORD_PATTERN, 'Password needs at least 8 chars'],
-    },
-
-    description: {
-      type: String,
-      default: "Update your profile to tell us more about yourself!",
-    },
-
-    tokens: {
-      type: Number,
-      default: 5,
-    },
-
+  tokens: {
+    type: Number,
+    default: 5,
+  },
 });
 
 
